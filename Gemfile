@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-
+gem 'rspec'
+gem 'rspec-rails'
+gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -44,5 +46,3 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-gem 'rspec'
-gem 'rspec-rails'
