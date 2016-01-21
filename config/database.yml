@@ -84,4 +84,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  <<: *default
+  database: coder-pinterest_production
   url: <%= ENV['DATABASE_URL'] %>
