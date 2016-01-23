@@ -19,11 +19,11 @@
             </div>
             <div class="col-xs-9">
               <h4>
-                <a href="<%= pin_path(pin) %>">
+                <a href="<%=pin_by_name_path(slug: pin.slug)%>">
                   <%= "#{pin.title}" %>
                 </a>
               </h4>
-              <a class="url" href="<%= "#{pin.url}" %>">
+              <a class="url" href="<%= "#{pin.slug}" %>">
                 <%= "#{pin.url}" %>
               </a>
             </div>
