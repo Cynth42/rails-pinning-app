@@ -14,4 +14,7 @@ class PinsController < ApplicationController
       render :show
   end
   
+  def new
+    @pin = Pin.new
+  end
 end
