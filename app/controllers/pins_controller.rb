@@ -21,19 +21,20 @@ class PinsController < ApplicationController
   
 # GET /people/1/edit
   def edit
-    
   end
 
-  
+# POST /people
+# POST /people.json
   def create
-      @pin = Pin.create(pin_params)
+      @pin = Pin.new(pin_params)
       if @pin.valid?
           @pin.save
           redirect_to pin_path(@pin)
           else
           @errors = @pin.errors
           render :new
-     end
+
+      end
   end
   
   private

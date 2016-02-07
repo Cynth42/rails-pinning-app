@@ -18,14 +18,15 @@
   <%= f.collection_select(:category_id, Category.all, :id, :name) %> <br />
 
 <label for="slug">Slug</label> 
-  <%= f.text_field :title %> <br />
+  <%= f.search_field :slug %> <br />
  
 <label for="url">Url</label> 
-  <%= f.text_field :title %> <br />
+  <%= f.url_field :url %> <br />
+  
 
 <label for="text">Text</label> 
-  <%= f.text_field :title %> <br />
+  <%= f.text_field :text %> <br />
   <br>
-  <%= f.button %>  
+  <%= f.submit nil, :class => 'btn btn-primary' %>
 <% end %>
-
+  
