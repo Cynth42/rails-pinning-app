@@ -21,6 +21,7 @@ class PinsController < ApplicationController
   
 # GET /people/1/edit
   def edit
+      @pin = Pin.find(params[:id])
   end
 
 # POST /people
@@ -37,9 +38,24 @@ class PinsController < ApplicationController
       end
   end
   
+def update
+    @pin = Pin.find(params[:id])
+    @pin.update_attributes(pin_params)
+    
+    if @pin.valid?
+        @pin.save
+        redirect_to pin_path(@pin)
+        else
+        @errors = @pin.errors
+        render :edit
+        
+    end
+end
+
   private
   
   def pin_params
+      
       params.require(:pin).permit(:title, :url, :slug, :text, :category_id)
   end
 end
