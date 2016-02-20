@@ -3,6 +3,9 @@ gem 'spec'
 gem 'rspec-rails'
 gem 'rails_12factor'
 
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git" 
+gem 'aws-sdk', '< 2.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -44,9 +47,5 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'database_cleaner'
   gem 'spring', '~> 1.3.4'
-# gem 'paperclip', github: 'thoughtbot/paperclip'  
-  gem 'paperclip'
-  gem 'aws-sdk', '< 2.0'
-
 
 end
