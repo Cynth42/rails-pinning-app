@@ -8,8 +8,7 @@
     </ul>
   </div>
 <% end %>
-
-<%= form_for @pin do |f| %>
+<%= form_for(@pin, multipart: true) do |f| %>
 <div class="containers">
 <div class="col-xs-12 form-group">                
 <label for="pin_title">Title</label>
@@ -33,8 +32,14 @@
  
 <div class="col-xs-12 form-group">  
 <label for="text">Text</label> 
-  <%= f.text_field :text, :class => 'form-control'%> 
+  <%= f.text_area :text, placeholder: 'description', :class => 'form-control'%> 
 </div> 
+
+<div class="col-xs-6 form-group">
+  <label for="pin_image">Image</label>
+  <%= f.file_field :image  %>
+</div>
+
 <div class="col-xs-12 form-group"> 
   <%= f.submit nil, :class => 'btn btn-primary btn-block' %>
 <% end %>

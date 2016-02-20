@@ -53,9 +53,8 @@ def update
 end
 
   private
-  
+# Never trust parameters from the scary internet, only allow the white list through
   def pin_params
-      
-      params.require(:pin).permit(:title, :url, :slug, :text, :category_id)
+      params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image)
   end
 end
