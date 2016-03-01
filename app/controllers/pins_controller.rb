@@ -1,4 +1,5 @@
 class PinsController < ApplicationController
+  before_action :set_pin, only: [:show, :edit, :update, :destroy]
   
   def index
     @pins = Pin.all
@@ -14,18 +15,18 @@ class PinsController < ApplicationController
       render :show
   end
 
-# GET /people/new
+# GET /pin/new
   def new
       @pin = Pin.new
   end
   
-# GET /people/1/edit
+# GET /pin/1/edit
   def edit
       @pin = Pin.find(params[:id])
   end
 
-# POST /people
-# POST /people.json
+# POST /pin
+# POST /pin.json
   def create
       @pin = Pin.new(pin_params)
       if @pin.valid?
@@ -52,7 +53,24 @@ def update
     end
 end
 
-  private
+# DELETE /pins/1
+# DELETE /pins/1.json
+def destroy
+    @pin.destroy
+    respond_to do |format|
+        format.html { redirect_to pins_url, notice: 'Pin was successfully destroyed.' }
+        format.json { head :no_content }
+    end
+end
+
+
+private
+
+# Use callbacks to share common setup or constraints between actions.
+def set_pin
+    @pin = Pin.find(params[:id])
+end
+
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
       params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image)

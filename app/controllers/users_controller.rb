@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :require_login, only: [:show, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -20,12 +20,33 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
+  
+  # GET /users/login
+  def login
+  end
+  
+  def logout
+    session.delete(:user_id)
+  end
 
+  
+  # POST /authenticate
+  # POST /authenticate.json
+  def authenticate
+      @user = User.authenticate(params[:email], params[:password])
+      if @user.nil?
+          @errors = "Either email or password is incorrect"
+          render :login
+          else
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
+      end
+  end
+  
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -65,6 +86,12 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+    
+    def require_login
+      if current_user.nil?
+          redirect_to login_path(current_user)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
