@@ -14,13 +14,11 @@ RSpec.describe User, type: :model do
   end
   
   it 'authenticates and returns a user when valid email and password passed in' do
-   
-  
-  it { should validates_presence_of(:first_name) }
-  it { should validates_presence_of(:last_name) }
-  it { should validates_presence_of(:email) }
-  it { should validates_presence_of(:password) }
-  it { should validates_presence_of(:first_name) }
-  it { should validates_uniqueness_of(:email)}
+  it { should validate_presence_of(:first_name) }
+  it { should validate_presence_of(:last_name) }
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:password) }
+  it { should validate_presence_of(:first_name) }
+  it { should validate_uniqueness_of(:email) }
   end
 end

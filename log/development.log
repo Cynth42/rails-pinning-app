@@ -3773,3 +3773,414 @@ BCrypt::Errors::InvalidHash (invalid hash):
   Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (28.7ms)
+
+
+Started GET "/users/new" for ::1 at 2016-03-01 23:00:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (39.1ms)
+  Rendered users/new.html.erb within layouts/application (47.3ms)
+Completed 500 Internal Server Error in 177ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__2538556975617338276_70194226888780'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (34.9ms)
+
+
+Started GET "/" for ::1 at 2016-03-02 21:20:42 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (25.9ms)[0m  SELECT "pins".* FROM "pins"
+[AWS S3 404 0.203939 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.027144 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.026636 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.045352 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.087465 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.027782 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.029979 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (730.4ms)
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 893ms (Views: 834.1ms | ActiveRecord: 41.4ms)
+
+
+Started GET "/assets/application-da2ccc4bfc01bb754e8eccfab06d0191.css?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/pins-04cd2ce21dbde0e32afdc19e6e16205d.css?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/cosmo-bootswatch-theme-450effffe2a267bc84c90be0448c1ea9.css?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/application-001948a807d6467a657420955d9f0c1c.js?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/rails-logo-thumbnail-9ac79afb30c2690c12998924141687c9.png" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/ruby-logo-thumbnail-f7feb40a78b146b9f172f8d866e29de8.png" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/assets/laptop-background-280277fdcad4c5b6066d8c2814432e86.jpg" for ::1 at 2016-03-02 21:20:43 -0500
+
+
+Started GET "/signup" for ::1 at 2016-03-02 21:21:05 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (45.3ms)
+  Rendered users/new.html.erb within layouts/application (51.5ms)
+Completed 500 Internal Server Error in 106ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2976708867282531022_70149532673060'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (23.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (51.2ms)
+
+
+Started POST "/console/repl_sessions/c5f118b67b6440c5f256f99deafcb7d5/trace" for ::1 at 2016-03-02 21:21:44 -0500
+
+
+Started POST "/console/repl_sessions/c5f118b67b6440c5f256f99deafcb7d5/trace" for ::1 at 2016-03-02 21:22:03 -0500
+
+
+Started POST "/console/repl_sessions/c5f118b67b6440c5f256f99deafcb7d5/trace" for ::1 at 2016-03-02 21:22:04 -0500
+
+
+Started POST "/console/repl_sessions/c5f118b67b6440c5f256f99deafcb7d5/trace" for ::1 at 2016-03-02 21:22:05 -0500
+
+
+Started POST "/console/repl_sessions/c5f118b67b6440c5f256f99deafcb7d5/trace" for ::1 at 2016-03-02 21:22:05 -0500
+
+
+Started GET "/login" for ::1 at 2016-03-02 21:22:25 -0500
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme-450effffe2a267bc84c90be0448c1ea9.css?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/pins-04cd2ce21dbde0e32afdc19e6e16205d.css?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/application-da2ccc4bfc01bb754e8eccfab06d0191.css?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/application-001948a807d6467a657420955d9f0c1c.js?body=1" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/assets/laptop-background-280277fdcad4c5b6066d8c2814432e86.jpg" for ::1 at 2016-03-02 21:22:25 -0500
+
+
+Started GET "/signup" for ::1 at 2016-03-02 21:22:34 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 52ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2976708867282531022_70149532673060'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (10.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (23.2ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-02 21:22:34 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2976708867282531022_70149532673060'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (11.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (25.2ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-02 21:29:14 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (3.6ms)
+  Rendered users/new.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2976708867282531022_70149532673060'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (11.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (25.1ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-02 21:29:17 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 55ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2976708867282531022_70149532673060'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (12.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (26.2ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-02 21:29:37 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2976708867282531022_70149532673060'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (35.5ms)
+
+
+Started GET "/login" for ::1 at 2016-03-04 15:05:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (6.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (3.3ms)
+  [1m[35mUser Load (6.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 2231ms (Views: 2198.4ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-03-04 15:05:07 -0500
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-03-04 15:05:07 -0500
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-03-04 15:05:07 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-04 15:05:07 -0500
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-03-04 15:05:07 -0500
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-03-04 15:05:07 -0500
+
+
+Started GET "/signup" for ::1 at 2016-03-04 15:05:10 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (45.7ms)
+  Rendered users/new.html.erb within layouts/application (52.6ms)
+Completed 500 Internal Server Error in 74ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__4131816979735434683_70108553821440'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (49.4ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-04 15:05:10 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (No route matches {:action=>"logout", :controller=>"users", :id=>nil} missing required keys: [:id]):
+    13:   <div class="pull-right">     
+    14:   <h3>
+    15:     <%= "Hi, #{current_user.first_name}!"%> 
+    16:     <%= link_to "Logout", logout_path(current_user), method: :delete %> 
+    17:   </h3>
+    18: </div>
+    19: <% end %>
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__4131816979735434683_70108553821440'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (26.4ms)

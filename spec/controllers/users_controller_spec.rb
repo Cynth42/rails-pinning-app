@@ -60,25 +60,34 @@ RSpec.describe UsersController, type: :controller do
   describe "GET #show" do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: @user.email, password: @user.password}
       get :show, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
-    end
   end
+end
+    it "redirects to login if user is not signed in" do
+        user = User.create! valid_attributes
+        get :show, {:id => user.to_param}, valid_session
+        expect(response).to redirect_to(:login)
+    end
+end
 
   describe "GET #new" do
     it "assigns a new user as @user" do
-      get :new, {}, valid_session
-      expect(assigns(:user)).to be_a_new(User)
+        post :authenticate, {email: @user.email, password: @user.password}
+        get :new, {}, valid_session
+        expect(assigns(:user)).to be_a_new(User)
     end
-  end
+end
 
   describe "GET #edit" do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: @user.email, password: @user.password}
       get :edit, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
     end
-  end
+ end
 
   describe "POST #create" do
     context "with valid params" do
@@ -128,6 +137,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "assigns the requested user as @user" do
         user = User.create! valid_attributes
+        post :authenticate, {email: @user.email, password: @user.password}
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
         expect(assigns(:user)).to eq(user)
       end
@@ -136,8 +146,7 @@ RSpec.describe UsersController, type: :controller do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
         expect(response).to redirect_to(user)
-      end
-    end
+     end
 
     context "with invalid params" do
       it "assigns the user as @user" do
@@ -157,17 +166,13 @@ RSpec.describe UsersController, type: :controller do
   describe "DELETE #destroy" do
     it "destroys the requested user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: @user.email, password: @user.password}
       expect {
         delete :destroy, {:id => user.to_param}, valid_session
       }.to change(User, :count).by(-1)
     end
 
-    it "redirects to the users list" do
-      user = User.create! valid_attributes
-      delete :destroy, {:id => user.to_param}, valid_session
-      expect(response).to redirect_to(users_url)
-    end
-  end
+ end
   
   describe "GET login" do
       it "renders the login view" do
@@ -196,7 +201,7 @@ RSpec.describe UsersController, type: :controller do
       it "populates @user if params valid" do
           post :authenticate, @valid_user_hash
           # write expectation here
-        
+          expect(assigns[:@user].present?).to be(true)
       end
       
       it "renders the login view if params invalid" do
@@ -208,6 +213,7 @@ RSpec.describe UsersController, type: :controller do
       it "populates the @errors variable if params invalid" do
           post :authenticate, @invalid_user_hash 
           # write expectation here
+          expect(assigns[:errors].present?).to be(true)
       end
   end
 

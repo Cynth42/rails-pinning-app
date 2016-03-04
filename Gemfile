@@ -47,10 +47,9 @@ group :development do
 end
 group :test do
   gem 'shoulda-matchers'
-  gem 'spring', '~> 1.3.4'
   gem 'database_cleaner'
   gem 'spec'
   gem 'rspec-rails'
   gem 'rails_12factor' 
-  gem 'factory_girl'             
+  gem 'factory_girl_rails'            
 end

@@ -92,14 +92,14 @@ RSpec.describe PinsController do
         it 'responds with successfully' do
             get :edit, id: @pin.id
             expect(response.success?).to be(true)
-            expect(response).to render_template(:edit)
+            #expect(response).to render_template(:edit)
         end
         
         # renders the edit template
         it 'renders the edit template' do
             get :edit, id: @pin.id
             expect(response).to render_template(:edit)
-            expect(response).to be_success
+            #expect(response).to be_success
         end
         
         # assigns an instance variable called @pin to the Pin with the appropriate id
@@ -160,7 +160,6 @@ RSpec.describe PinsController do
             put :update, id: @pin, pin: {title: nil}
             # assigns an @errors instance variable
             expect(assigns[:errors].present?).to be(true)
-        end    
+        end
     end
-    
 end
