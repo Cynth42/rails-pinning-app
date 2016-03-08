@@ -51,5 +51,5 @@ group :test do
   gem 'spec'
   gem 'rspec-rails'
   gem 'rails_12factor' 
-  gem 'factory_girl_rails'            
+  gem 'factory_girl'             
 end
