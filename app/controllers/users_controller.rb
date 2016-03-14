@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   
   def logout
     session.delete(:user_id)
+    redirect_to root_url
   end
 
   
@@ -62,6 +63,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+      @user = User.find(params[:id])
+      @user.update_attributes(user_params)
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -85,9 +88,9 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    #def set_user
-    # @user = User.find(params[:id])
-    #end
+  def set_user
+     @user = User.find(params[:id])
+  end
 
   def require_login
     if current_user.nil?

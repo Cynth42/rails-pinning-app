@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, except: [:index]
+    resources :users, except: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   get "/login" => "users#login"
   post "/login" => "users#authenticate"
-  delete "logout/:id" => "users#logout", as: :logout
+  delete "/logout" => "users#logout", as: :logout
 
   
   

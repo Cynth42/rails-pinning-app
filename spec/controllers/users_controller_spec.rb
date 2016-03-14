@@ -49,17 +49,19 @@ RSpec.describe UsersController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) {
+    { :current_user => FactoryGirl.build(:user) }
+  }
 
-  describe "GET #index" do
+ describe "GET #index" do
     it "assigns all users as @users" do
-      user = User.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:users)).to eq([user])
-    end
-  end
+    user = User.create! valid_attributes
+    expect {
+        get :index, {}, valid_session }.to raise_exception
+   end
+ end
 
-  describe "GET #show" do
+ describe "GET #show" do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
       post :authenticate, {email: @user.email, password: @user.password}
@@ -101,30 +103,30 @@ RSpec.describe UsersController, type: :controller do
     context "with valid params" do
       it "creates a new User" do
         expect {
-          post :create, {:user => valid_attributes}, valid_session
+            post :create, {:user => valid_attributes}, valid_session
         }.to change(User, :count).by(1)
       end
 
       it "assigns a newly created user as @user" do
-        post :create, {:user => valid_attributes}, valid_session
+          post :create, {:user => valid_attributes}, valid_session
         expect(assigns(:user)).to be_a(User)
         expect(assigns(:user)).to be_persisted
       end
 
       it "redirects to the created user" do
-        post :create, {:user => valid_attributes}, valid_session
+          post :create, {:user => valid_attributes}, valid_session
         expect(response).to redirect_to(User.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved user as @user" do
-        post :create, {:user => invalid_attributes}, valid_session
+          post :create, {:user => invalid_attributes}, valid_session
         expect(assigns(:user)).to be_a_new(User)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:user => invalid_attributes}, valid_session
+          post :create, {:user => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -132,29 +134,34 @@ RSpec.describe UsersController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-      end
-   
-
+        let(:new_attributes){
+          #skip("Add a hash of attributes valid for your model")
+          { first_name: "Skillcrush", last_name: "Coder", email: "coder31@skillcrush.com", password: "secret"}
+        }
+    
       it "updates the requested user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => new_attributes}, valid_session
         user.reload
-        skip("Add assertions for updated state")
-      end
+        #skip("Add assertions for updated state")
+        expect(user.first_name).to eq("Skillcrush")
+        expect(user.last_name).to eq("Coder")
+        expect(user.email).to eq("coder31@skillcrush.com")
+        expect(user.password).to eq("secret")
+     end
+  end
 
       it "assigns the requested user as @user" do
         user = User.create! valid_attributes
         post :authenticate, {email: @user.email, password: @user.password}
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
         expect(assigns(:user)).to eq(user)
-      end
+     end
 
       it "redirects to the user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
+        #expect(response.status).to eq(302)
         expect(response).to redirect_to(user)
      end
 
@@ -162,7 +169,9 @@ RSpec.describe UsersController, type: :controller do
       it "assigns the user as @user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
+        #expect(response.status).to eq(302)
         expect(assigns(:user)).to eq(user)
+        
       end
 
       it "re-renders the 'edit' template" do
@@ -185,7 +194,7 @@ RSpec.describe UsersController, type: :controller do
       user = User.create! valid_attributes
       post :authenticate, {email: @user.email, password: @user.password}
       expect {
-        delete :destroy, {:id => user.to_param}, valid_session
+          delete :destroy, {:id => user.to_param}, valid_session
       }.to change(User, :count).by(-1)
     end
  end
@@ -224,7 +233,7 @@ RSpec.describe UsersController, type: :controller do
       it "populates @user if params valid" do
           post :authenticate, @valid_user_hash
           # write expectation here
-          expect(assigns[:user]).to eq(user)
+          expect(assigns[:@user]).to eq(@user)
       end
       
       it "renders the login view if params invalid" do
