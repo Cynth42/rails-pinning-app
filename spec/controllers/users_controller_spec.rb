@@ -50,8 +50,9 @@ RSpec.describe UsersController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) {
-      { session[:@user_id] => FactoryGirl.build(:user, first_name: "Skillcrush") }
-    }
+      
+    { user_id: FactoryGirl.create(:user, first_name: "Skillcrush").id }
+  }
 
  describe "GET #index" do
     it "assigns all users as @users" do
@@ -136,7 +137,7 @@ RSpec.describe UsersController, type: :controller do
     context "with valid params" do
         let(:new_attributes){
           #skip("Add a hash of attributes valid for your model")
-          { first_name: "Skillcrush", last_name: "Coder", email: "coder31@skillcrush.com", password: "secret"}
+          { first_name: "Skillcrush", last_name: "Coder", email: "coder@skillcrush.com", password: "secret"}
         }
     
       it "updates the requested user" do
@@ -146,7 +147,7 @@ RSpec.describe UsersController, type: :controller do
         #skip("Add assertions for updated state")
         expect(user.first_name).to eq("Skillcrush")
         expect(user.last_name).to eq("Coder")
-        expect(user.email).to eq("coder31@skillcrush.com")
+        expect(user.email).to eq("coder@skillcrush.com")
         expect(user.password).to eq("secret")
      end
   end
