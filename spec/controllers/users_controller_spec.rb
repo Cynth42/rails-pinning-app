@@ -50,8 +50,8 @@ RSpec.describe UsersController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) {
-    { :current_user => FactoryGirl.build(:user) }
-  }
+      { session[:@user_id] => FactoryGirl.build(:user, first_name: "Skillcrush") }
+    }
 
  describe "GET #index" do
     it "assigns all users as @users" do
@@ -233,7 +233,7 @@ RSpec.describe UsersController, type: :controller do
       it "populates @user if params valid" do
           post :authenticate, @valid_user_hash
           # write expectation here
-          expect(assigns[:@user]).to eq(@user)
+          expect(assigns[:user]).to eq(@user)
       end
       
       it "renders the login view if params invalid" do

@@ -10338,3 +10338,858 @@ Completed 200 OK in 755ms (Views: 752.9ms | ActiveRecord: 1.0ms)
   [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150409201335')
   [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160217013053')[0m
   [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160221202030')
+
+
+Started GET "/signup" for ::1 at 2016-03-14 14:15:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (24.0ms)
+  Rendered users/new.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 364ms (Views: 315.4ms | ActiveRecord: 31.9ms)
+
+
+Started DELETE "/logout" for ::1 at 2016-03-14 14:15:59 -0400
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"DvMWSrVp1qlP6hs0tCwsjzQeh92GQgM4MYeNX4U/RHRVv9uH7x0YFu9KOWGRtEv+JKF3o30kab0umWFilaJKMw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-14 14:15:59 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (20.7ms)[0m  SELECT "pins".* FROM "pins"
+[AWS S3 404 0.619723 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.026609 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.026905 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.030575 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.030161 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.026633 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.031039 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (1036.8ms)
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 1067ms (Views: 1035.4ms | ActiveRecord: 26.6ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-14 14:16:11 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-03-14 14:16:46 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r09RTJgF3SuyLn04b+I5uRijVZk2Hj+hUJ+cktMkoPf0A5yBwnETlBKOX21Kel7ICByl5814VSRPgXCvw7musA==", "user"=>{"first_name"=>"cc", "last_name"=>"gg", "email"=>"gc@yahoo.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (3.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'gc@yahoo.com' LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "cc"], ["last_name", "gg"], ["email", "gc@yahoo.com"], ["password_digest", "$2a$10$cLl4AKVeE9.xr0Q8hz/mLOgmYIC.pjqfoszyirxZN28ZDtRcL/lrm"], ["created_at", "2016-03-14 18:16:46.200971"], ["updated_at", "2016-03-14 18:16:46.200971"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/24
+Completed 302 Found in 80ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/users/24" for ::1 at 2016-03-14 14:16:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2016-03-14 14:16:46 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2016-03-14 14:17:20 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qHcF1Af4Mp0vn5gv4f5HOKWsIS8pSb+syNtegyHAgtfzO8gZXYz8Io8/unrEZiBJtRPRUdIv1SnXxbK+MV2MkA==", "email"=>"gc@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "gc@yahoo.com"]]
+Redirected to http://localhost:3000/users/24
+Completed 302 Found in 70ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/24" for ::1 at 2016-03-14 14:17:20 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=24)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (118.2ms)[0m  [1mDROP DATABASE IF EXISTS "coder-pinterest_test"[0m
+  [1m[35m (1064.3ms)[0m  CREATE DATABASE "coder-pinterest_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (22.2ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying) 
+  [1m[36m (9.4ms)[0m  [1mCREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "category_id" integer, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp) [0m
+  [1m[35m (5.2ms)[0m  CREATE  INDEX  "index_pins_on_category_id" ON "pins" USING btree ("category_id")
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "password_digest" character varying) [0m
+  [1m[35m (14.2ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (5.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160228010538')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318194553')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150320022457')[0m
+  [1m[35m (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150409201335')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160217013053')[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160221202030')
+  [1m[36m (115.5ms)[0m  [1mDROP DATABASE IF EXISTS "coder-pinterest_test"[0m
+  [1m[35m (691.6ms)[0m  CREATE DATABASE "coder-pinterest_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (11.4ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying) 
+  [1m[36m (12.5ms)[0m  [1mCREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "category_id" integer, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp) [0m
+  [1m[35m (4.7ms)[0m  CREATE  INDEX  "index_pins_on_category_id" ON "pins" USING btree ("category_id")
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "password_digest" character varying) [0m
+  [1m[35m (5.2ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (4.9ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160228010538')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318194553')
+  [1m[36m (7.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150320022457')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150409201335')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160217013053')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160221202030')
+
+
+Started GET "/" for ::1 at 2016-03-19 00:09:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (25.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+SyntaxError (/Users/cynthiaclinton/Desktop/railsApp/rails-pinning-app/app/controllers/application_controller.rb:20: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/application_controller.rb:20: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/pins_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (45.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.2ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:12:37 -0400
+
+SyntaxError (/Users/cynthiaclinton/Desktop/railsApp/rails-pinning-app/app/controllers/application_controller.rb:14: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/application_controller.rb:14: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/pins_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:13:29 -0400
+
+SyntaxError (/Users/cynthiaclinton/Desktop/railsApp/rails-pinning-app/app/controllers/application_controller.rb:21: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/application_controller.rb:21: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/pins_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (25.9ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:18:32 -0400
+
+SyntaxError (/Users/cynthiaclinton/Desktop/railsApp/rails-pinning-app/app/controllers/application_controller.rb:20: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/application_controller.rb:20: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/pins_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (26.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:19:18 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (24.4ms)[0m  SELECT "pins".* FROM "pins"
+[AWS S3 404 0.643899 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.056366 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.02704 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.030917 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.029912 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.027306 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.033401 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (1356.6ms)
+  [1m[36mUser Load (12.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 1496ms (Views: 1433.4ms | ActiveRecord: 52.5ms)
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/rails-logo-thumbnail-352bfacbc5124cefde5f613d641cdda4e35b53d5f25c4b330866ed8073e550ff.png" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/ruby-logo-thumbnail-7c9addb742002b900a76a6ae971ca7493c87e48f76fc864c57177ecce05806cb.png" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-03-19 00:19:20 -0400
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:19:28 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:19:33 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d+dkKI87m1DQrGGdEsla9PgKfwDuiQVATHIZ/nXvpv6H262vC5D9VorwbSOpWi4pbORvYw3yEGn3Xjimn4Gzpg==", "email"=>"", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (16.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", ""]]
+  Rendered users/login.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 48ms (Views: 13.6ms | ActiveRecord: 17.4ms)
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:19:37 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XA5PLeIpgORHWRhrJhJO6VQCPRF8BB2D5DQwqn15upisMoaqZoLm4h0FFNWdgTo0wOwtcp9/CKpfGBHylxevwA==", "email"=>"", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", ""]]
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-19 00:19:50 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.4ms)
+  Rendered users/new.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 40ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/logout" for ::1 at 2016-03-19 00:19:52 -0400
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"XVtgfefvpeG1NLQF4c9s45HIOiW3GXUiinMXE/O0JEGtZ6n6Y0TD5+9ouLtaXBg+BSYqRlRiYAsxXzZLGdoxGQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:19:52 -0400
+Processing by PinsController#index as HTML
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+[AWS S3 404 0.532894 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.025853 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.024815 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.027715 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.027583 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.028353 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.027697 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (718.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 732ms (Views: 730.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-19 00:20:02 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-03-19 00:20:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cTV2ptw7WNrbnWO1vHDEa/4+6Wdw0ZNPE5GOtx5QD0uBCb8hWJA+3IHBbwsH47C2atD5BJOqhmaova/v9D4aEw==", "user"=>{"first_name"=>"cc", "last_name"=>"vv", "email"=>"cv@yahoo.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'cv@yahoo.com' LIMIT 1
+  [1m[36mSQL (11.8ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "cc"], ["last_name", "vv"], ["email", "cv@yahoo.com"], ["password_digest", "$2a$10$CQg66W6v5fVf3P6uFmRk5OZoZJUNonN1wCp.tcDI5SIxfNACVdTWO"], ["created_at", "2016-03-19 04:20:27.890097"], ["updated_at", "2016-03-19 04:20:27.890097"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/25
+Completed 302 Found in 103ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/users/25" for ::1 at 2016-03-19 00:20:27 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:20:27 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:20:49 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UVyv+Zh3WSNVc9QEGxe6ZDIX0kfP7JTP6SjtYn9kOUChYGZ+HNw/JQ8v2LqghM65pvnCJCyXgeZSBMw6lQosGA==", "email"=>"cv@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "cv@yahoo.com"]]
+Redirected to http://localhost:3000/users/25
+Completed 302 Found in 65ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/25" for ::1 at 2016-03-19 00:20:49 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:28:59 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 29.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:29:01 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-03-19 00:29:01 -0400
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:29:15 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LyGqYuSRTYMKvCWqCeKoGEVxIrff5EK1kTzc1M0vUkTfHWPlYDorhVDgKRSycdzF0Z8y1DyfV5wqEP2MJ0FHHA==", "email"=>"cv@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "cv@yahoo.com"]]
+Redirected to http://localhost:3000/users/25
+Completed 302 Found in 69ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/25" for ::1 at 2016-03-19 00:29:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/25" for ::1 at 2016-03-19 00:38:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 26ms (Views: 16.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-03-19 00:38:42 -0400
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:38:44 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=25)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout.25" for ::1 at 2016-03-19 00:38:46 -0400
+Processing by UsersController#logout as 
+  Parameters: {"authenticity_token"=>"2bBRBpVqmZDjYAxmWShJKALVZd4+5onjVLpD261pQ5kpjJiBEcH/lrk8ANjiuz31ljt1vd2dnMrvlmKDRwdWwQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:38:46 -0400
+Processing by PinsController#index as HTML
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+[AWS S3 404 0.127064 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.035059 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.026927 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.107914 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.030316 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.047979 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.034604 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (438.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 457ms (Views: 451.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/signup" for ::1 at 2016-03-19 00:38:58 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-03-19 00:39:04 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dJtzhoe8Veb2i7sMiFLRDeWYRXj3i7Ca+zHZLFZCNi6Ep7oBAxcz4KzXt7IzwaXQcXZVGxTwpbNAHfh0vCwjdg==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = '' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  Rendered users/_form.html.erb (4.5ms)
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/logout" for ::1 at 2016-03-19 00:40:48 -0400
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"jcT2kEZ2Ka5BxC8PyWvXqdD3TXeeKCAj9Bt77d0jjJB9+D8Xwt1PqBuYI7Fy+KN0RBldFH1TNQpPN1q1N02ZyA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:40:48 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (0.4ms)[0m  SELECT "pins".* FROM "pins"
+[AWS S3 404 0.538786 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.033576 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.026059 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.028523 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.030819 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.027297 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.027364 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (742.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 770ms (Views: 762.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:41:17 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for ::1 at 2016-03-19 00:41:19 -0400
+
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.0.2) lib/puma/configuration.rb:221:in `call'
+  puma (3.0.2) lib/puma/server.rb:561:in `handle_request'
+  puma (3.0.2) lib/puma/server.rb:406:in `process_client'
+  puma (3.0.2) lib/puma/server.rb:271:in `block in run'
+  puma (3.0.2) lib/puma/thread_pool.rb:111:in `call'
+  puma (3.0.2) lib/puma/thread_pool.rb:111:in `block in spawn_thread'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (33.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.5ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:41:32 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:41:44 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"11l1KDVrSSo/aFWYD0r8WtIYbCIadVFIaGRL0bOXMDwnZbyvscAvLGU0WSa02YiHRvZ8QfkORGHTSGqJWfklZA==", "email"=>"cclinc2005@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "cclinc2005@yahoo.com"]]
+  Rendered users/login.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 87ms (Views: 15.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:42:21 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zb4BzGGGH3A/VaRsTEuxRVmKSkpNxlKRefNrRoM+L+SVgshL5S15dmUJqNL32MWYzWRaKa69R7jC30oeaVA6vA==", "email"=>"cclinc2005@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "cclinc2005@yahoo.com"]]
+  Rendered users/login.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 79ms (Views: 12.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:45:32 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:45:34 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-03-19 00:45:34 -0400
+
+
+Started GET "/" for ::1 at 2016-03-19 00:45:37 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (0.4ms)[0m  SELECT "pins".* FROM "pins"
+[AWS S3 404 0.57984 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.0342 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.035667 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.040778 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.038569 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.034401 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.037933 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (831.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 855ms (Views: 849.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/rails-logo-thumbnail-352bfacbc5124cefde5f613d641cdda4e35b53d5f25c4b330866ed8073e550ff.png" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/assets/ruby-logo-thumbnail-7c9addb742002b900a76a6ae971ca7493c87e48f76fc864c57177ecce05806cb.png" for ::1 at 2016-03-19 00:45:37 -0400
+
+
+Started GET "/signup" for ::1 at 2016-03-19 00:45:52 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-03-19 00:46:00 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MlTzpRzhUo2dPGuHIZyVmBD3lobDJwlDCikxcJQqA9DCaDoimEo0i8dgZzmaD+FFhBmG5SBcHGqxBRAofkQWiA==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = '' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered users/_form.html.erb (4.8ms)
+  Rendered users/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 26ms (Views: 19.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for ::1 at 2016-03-19 00:46:29 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MlTzpRzhUo2dPGuHIZyVmBD3lobDJwlDCikxcJQqA9DCaDoimEo0i8dgZzmaD+FFhBmG5SBcHGqxBRAofkQWiA==", "user"=>{"first_name"=>"cc", "last_name"=>"cv", "email"=>"cc@yahoo.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'cc@yahoo.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "cc"], ["last_name", "cv"], ["email", "cc@yahoo.com"], ["password_digest", "$2a$10$/RoRjApn71w4EL408ADcLOLqJNyRakH1QXokICi8JXGkhphkZhL1q"], ["created_at", "2016-03-19 04:46:29.653051"], ["updated_at", "2016-03-19 04:46:29.653051"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/26
+Completed 302 Found in 75ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/26" for ::1 at 2016-03-19 00:46:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:46:29 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:46:44 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UQHpPL3qv/qf2syNnr1Sl+CA9A0g4p4RxmTB817nMDGhPSC7OUHZ/MWGwDMlLiZKdG7kbsOZizh9SOCrtIklaQ==", "email"=>"cc@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "cc@yahoo.com"]]
+Redirected to http://localhost:3000/users/26
+Completed 302 Found in 68ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/26" for ::1 at 2016-03-19 00:46:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=26)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/26/edit" for ::1 at 2016-03-19 00:46:50 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=26)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/_form.html.erb (2.8ms)
+  Rendered users/edit.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/26" for ::1 at 2016-03-19 00:47:16 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yB+0CW6AObGN3uuWcl+mRX7gFC4S0syuW6z3YYQf03M4I32O6itft9eC5yjJzNKY6g4ETfGp2YfggNY5bnHGKw==", "user"=>{"first_name"=>"cc", "last_name"=>"mm", "email"=>"mm@yahoo.com", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"26"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=26)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mm@yahoo.com' AND "users"."id" != 26) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_name" = $1, "email" = $2, "password_digest" = $3, "updated_at" = $4 WHERE "users"."id" = $5  [["last_name", "mm"], ["email", "mm@yahoo.com"], ["password_digest", "$2a$10$2EH/xbFKB7c5NKpQ.MGRAO.gNlRJWA6UrvAxlrrrbXfmVk8Tb.RT6"], ["updated_at", "2016-03-19 04:47:16.824080"], ["id", 26]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'mm@yahoo.com' AND "users"."id" != 26) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["password_digest", "$2a$10$/sCF.umDxnnVgQSAroDYQOFSz3UGgnLw6GbIU5jMUHBITTSW7qaK."], ["updated_at", "2016-03-19 04:47:16.894355"], ["id", 26]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/26
+Completed 302 Found in 143ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users/26" for ::1 at 2016-03-19 00:47:16 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=26)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout.26" for ::1 at 2016-03-19 00:47:39 -0400
+Processing by UsersController#logout as 
+  Parameters: {"authenticity_token"=>"S33FOQ/nLwbJq7zeGlNURss9/dxS2KgsXsLsEyObGD+7QQy+i0xJAJP3sGChwCCbX9Ptv7GjvQXl7s1LyfUNZw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-19 00:47:39 -0400
+Processing by PinsController#index as HTML
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+[AWS S3 404 0.530578 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/014/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.02498 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.027682 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/017/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 200 0.029039 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/018/original/IMG_0476.jpg")  
+
+[AWS S3 200 0.027959 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/011/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.031328 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/012/original/IMG_1094_(1).jpg")  
+
+[AWS S3 200 0.040855 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/009/original/IMG_1094_(1).jpg")  
+
+  Rendered pins/index.erb within layouts/application (736.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 755ms (Views: 752.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for ::1 at 2016-03-19 00:47:45 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2016-03-19 00:48:17 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QQntWfLizVI7ZhKgZ2S/0YWHfuX4tgULwxkBBOsSl2uxNSTedkmrVGE6Hh7c98sMEWluhhvNECJ4NSBcAXyCMw==", "email"=>"mm@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "mm@yahoo.com"]]
+Redirected to http://localhost:3000/users/26
+Completed 302 Found in 65ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/26" for ::1 at 2016-03-19 00:48:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=26)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.4ms)

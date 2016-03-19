@@ -37,11 +37,12 @@ class UsersController < ApplicationController
   def authenticate
       @user = User.authenticate(params[:email], params[:password])
       if @user.nil?
-          @errors = "Either email or password is incorrect"
-          render :login
-          else
-           session[:user_id] = @user.id
-           redirect_to user_path(@user)
+         @errors = "Either email or password is incorrect"
+         render :login
+      else
+         session[:user_id] = @user.id
+         flash.now[:success] = "Welcome to the Pinning App!"
+         redirect_to user_path(@user)
       end
   end
   
@@ -88,12 +89,13 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_user
-     @user = User.find(params[:id])
-  end
+    # def set_user
+    # @user = User.find(params[:id])
+    #end
 
   def require_login
     if current_user.nil?
+       flash.now[:danger] = "Please log in."
        redirect_to login_path
     end
  end
