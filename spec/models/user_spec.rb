@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe User, type: :model do
-    #pending "add some examples to (or delete) #{__FILE__}"
+    pending "add some examples to (or delete) #{__FILE__}"
     describe "self.authenticate" do
         before(:all) do
             @user = FactoryGirl.create(:user)
