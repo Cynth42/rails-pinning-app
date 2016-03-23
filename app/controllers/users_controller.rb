@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    #before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :require_login, only: [:show, :edit, :update, :destroy]
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
     
   # GET /users
   # GET /users.json
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   
   def logout
     session.delete(:user_id)
-    redirect_to root_url
+    #redirect_to root_url
   end
 
   
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
   def authenticate
       @user = User.authenticate(params[:email], params[:password])
       if @user.nil?
-         @errors = "Either email or password is incorrect"
+          @errors = "Either email or password is incorrect"
          render :login
       else
          session[:user_id] = @user.id
-         flash.now[:success] = "Welcome to the Pinning App!"
+         flash[:notice] = "Welcome to the Pinning App!"
          redirect_to user_path(@user)
       end
   end
@@ -89,14 +89,14 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # def set_user
-    # @user = User.find(params[:id])
-    #end
-
+    def set_user
+      @user = User.find(params[:id])
+    end
+    
+# Redirect the user to the login page if the current_user is nil
   def require_login
     if current_user.nil?
-       flash.now[:danger] = "Please log in."
-       redirect_to login_path
+       redirect_to login_path(@user)
     end
  end
 
