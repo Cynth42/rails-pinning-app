@@ -61,7 +61,8 @@ RSpec.describe UsersController, type: :controller do
     it "assigns all users as @users" do
     user = User.create! valid_attributes
     expect {
-        get :index, {}, invalid_session}.to raise_exception
+        get :index, {}, invalid_session}.
+        to raise_error(ActionController::UrlGenerationError)
    end
  end
 
@@ -82,7 +83,6 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new user as @user" do
-        #post :authenticate, {email: @user.email, password: @user.password}
         get :new, {}, valid_session
         expect(assigns(:user)).to be_a_new(User)
     end

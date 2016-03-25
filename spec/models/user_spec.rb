@@ -1,7 +1,8 @@
 require 'spec_helper'
+require 'helpers/rails_helper'
 
 RSpec.describe User, type: :model do
-    pending "add some examples to (or delete) #{__FILE__}"
+    #pending "add some examples to (or delete) #{__FILE__}"
     describe "self.authenticate" do
         before(:all) do
             @user = FactoryGirl.create(:user)
@@ -24,12 +25,14 @@ RSpec.describe User, type: :model do
         it {should validate_presence_of(:last_name) }
         it {should validate_presence_of(:email) }
         it {should validate_presence_of(:password) }
+        
     end
     
-    describe "Uniqness" do
-        it {should validate_uniqness_of(:email) }
-    end
+    describe "Uniqueness" do
+        it {should validate_uniqueness_of(:email) }
 
+    end
+    
 end
 
 

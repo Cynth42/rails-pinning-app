@@ -209,7 +209,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  shoulda-matchers
+  shoulda-matchers (~> 3.1)
   spec
   spring (~> 1.3.4)
   turbolinks
