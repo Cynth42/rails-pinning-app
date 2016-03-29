@@ -1,8 +1,8 @@
 class PinsController < ApplicationController
-    #before_action :set_pin, only: [:show, :edit, :update, :destroy]
+    before_action :require_login, except: [:index, :show, :show_by_name]
   
   def index
-    @pins = Pin.all
+     @pins = Pin.find_by_user_id(current_user.id)
   end
   
   def show
@@ -33,11 +33,11 @@ class PinsController < ApplicationController
           @pin.save
           redirect_to pin_path(@pin)
           else
-          @errors = @pin.errors
+          @errors = @pin.errors.full_messages
           render :new
 
       end
-  end
+ end
   
 def update
     @pin = Pin.find(params[:id])
@@ -47,7 +47,7 @@ def update
         @pin.save
         redirect_to pin_path(@pin)
         else
-        @errors = @pin.errors
+        @errors = @pin.errors.full_messages
         render :edit
         
     end
@@ -57,11 +57,11 @@ private
 
 # Use callbacks to share common setup or constraints between actions.
 #def set_pin
-#   @pin = Pin.find(params[:id])
+#@pin = Pin.find(params[:id])
 #end
 
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
-      params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image)
+      params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image, :user_id)
   end
 end

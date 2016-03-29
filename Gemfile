@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'paperclip', '~> 4.3', '>= 4.3.5'
-gem 'aws-sdk', '<= 2.0'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -34,17 +31,21 @@ gem 'puma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring 
+  gem 'spring', '~> 1.3.4'
+  gem 'paperclip', '~> 4.3', '>= 4.3.5'
+  gem 'aws-sdk', '<= 2.0'
+
+
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring 
-  gem 'spring', '~> 1.3.4'
-
 end
+
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner'

@@ -4,34 +4,49 @@
 </div>
 <hr/>
 <div class="pins">
-  <% @pins.each_slice(3) do |row| %>
-    <div class="row">
-      <% row.each do |pin| %>      
-        <div class="pin-container col-md-4">
-          <div class="pin">
-            <div class="pin-header row">
-            <div class="logo-thumbnail col-xs-3">
-             <% if pin.image.exists? %>
-             <%=image_tag pin.image.url(:thumb) %>
-             <%  elsif "#{pin.category_id}" == "2" %>
-             <%=  image_tag('rails-logo-thumbnail.png') %>
-             <%   elsif "#{pin.category_id}" == "1" %>
-             <%=  image_tag('ruby-logo-thumbnail.png') %>                
-             <% end %>
+  <% if @pins %>
+    <% @pins.each_slice(3) do |row| %>
+      <div class="row">
+        <% row.each do |pin| %>
+          <div class="pin-container col-md-4">
+            <div class="pin">
+              <div class="pin-header row">
+
+                <div class="logo-thumbnail col-xs-3">
+                  <% if pin.image? %>
+                     <%=image_tag pin.image.url(:thumb) %>
+                  <% else %>
+                    <% if "#{pin.category_id}" == "2" %>
+                      <%= image_tag('rails-logo-thumbnail.png') %>
+                    <% elsif "#{pin.category_id}" == "1" %>
+                      <%= image_tag('ruby-logo-thumbnail.png') %>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <div class="pin-title col-xs-9">
+                    <h4>
+                      <%= link_to "#{pin.title}", pin_by_name_path(slug: pin.slug) %>
+                    </h4>
+                    <%= link_to "#{pin.url.truncate(30)}", pin.url, html_options = {target: "_blank", class: "url"} %>
+                </div>
+
+              </div>
+              <hr/>
+              <p class="text"><%= "#{pin.text}" %></p>
             </div>
-            <div class="col-xs-9"> 
-              <h4>
-               <%= link_to "#{pin.title}", pin_by_name_path(slug: pin.slug) %>
-              </h4>
-              <%= link_to "#{pin.url.truncate(30)}", pin.url, html_options = {target: "_blank", class: "url"} %>
-            </div>
-        </div>
-           <hr/>
-            <p class="text"><%= "#{pin.text}" %></p>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <h4>Would you like to create and save your pins? Go right ahead!</h4>
   <% end %>
+  <h4>Add a new one here:
+    <a href= <%= "#{new_pin_path}" %> >
+      <i class="fa fa-plus"></i>  Create a New Pin
+    </a>
+  </h4>
 </div>
+
 <hr/>

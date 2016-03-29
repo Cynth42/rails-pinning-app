@@ -65,6 +65,13 @@ RSpec.describe UsersController, type: :controller do
         to raise_error(ActionController::UrlGenerationError)
    end
  end
+  
+   def logout(user)
+    if session[:user_id] == user.id
+      session.delete(:user_id)
+  end
+end
+
 
  describe "GET #show" do
     it "assigns the requested user as @user" do
@@ -87,6 +94,13 @@ RSpec.describe UsersController, type: :controller do
         expect(assigns(:user)).to be_a_new(User)
     end
  end
+
+  def logout(user)
+    if session[:user_id] == user.id
+        session.delete(:user_id)
+    end
+  end
+
 
   describe "GET #edit" do
     it "assigns the requested user as @user" do
@@ -136,6 +150,13 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+   def logout(user)
+    if session[:user_id] == user.id
+        session.delete(:user_id)
+    end
+ end
+
 
   describe "PUT #update" do
     context "with valid params" do
@@ -191,6 +212,13 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+   def logout(user)
+    if session[:user_id] == user.id
+        session.delete(:user_id)
+    end
+ end
+
 
      it "redirects to login if user is not signed in" do
         user = User.create! valid_attributes

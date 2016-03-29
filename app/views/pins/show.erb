@@ -10,9 +10,9 @@
   <hr/>
 <div class="image">
   <% if @pin.image.exists?(:medium) %>
-    <%= image_tag @pin.image.url(:medium), class: "img-responsive"%>
+    <%= image_tag @pin.image.url(:medium)%>
     <% else %>
-    <%= image_tag @pin.image.url(:thumb), class: "img-responsive" %>
+    <%= image_tag @pin.image.url(:thumb)%>
     <% end %>
   <p>
     <b>Visit <%= "#{@pin.title}" %> at: </b>
@@ -21,6 +21,14 @@
 </div>
 <br/>
 <a href="/">
-<i class="fa fa-arrow-left"></i>
+<i class="fa fa-hand-o-left"></i>
   Back to Home
 </a>
+<a href= <%= "#{edit_pin_path(@pin)}" %> >
+  <i class="fa fa-hand-o-right"></i>
+  Edit Pin
+</a> |
+<a href= <%= "#{new_pin_path}" %> >
+  <i class="fa fa-hand-o-right"></i>
+  Create a pin
+</a> 

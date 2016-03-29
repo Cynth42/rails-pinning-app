@@ -6,5 +6,13 @@ class ApplicationController < ActionController::Base
     @user ||= User.where("id=?",session[:user_id]).first
   end
    helper_method :current_user
+   
+   # Redirect the user to the login page if the current_user is nil
+  def require_login
+    if current_user.nil?
+        redirect_to login_path(@user)
+    end
   end
+end
+
 

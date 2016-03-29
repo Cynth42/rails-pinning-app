@@ -1,4 +1,4 @@
-
+<h1>Log in</h1>
 <% if @errors.present? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
@@ -6,15 +6,13 @@
     </div>
   </div>
 <% end %> 
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
 <hr/>
 <%= form_tag( "/login" ) do  %>
 <div class="field ">
  <%= label_tag :email %><br>   
  <%= email_field_tag :email %>
 </div>
-<div class="field f">
+<div class="field">
   <%= label_tag :password %><br>
   <%= password_field_tag :password %>
  </div>
@@ -22,7 +20,6 @@
  <%= submit_tag "Log in", class: "btn btn-primary" %>
  </div>
 <% end %>
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
 
 
 
