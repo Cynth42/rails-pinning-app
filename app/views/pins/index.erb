@@ -4,7 +4,7 @@
 </div>
 <hr/>
 <div class="pins">
-  <% if @pins %>
+   <% if @pins %>
     <% @pins.each_slice(3) do |row| %>
       <div class="row">
         <% row.each do |pin| %>
@@ -13,12 +13,12 @@
               <div class="pin-header row">
 
                 <div class="logo-thumbnail col-xs-3">
-                  <% if pin.image? %>
+                  <% if pin.image.exists? %>
                      <%=image_tag pin.image.url(:thumb) %>
                   <% else %>
-                    <% if "#{pin.category_id}" == "2" %>
+                    <% if "#{pin.category.name}" == "rails" %>
                       <%= image_tag('rails-logo-thumbnail.png') %>
-                    <% elsif "#{pin.category_id}" == "1" %>
+                    <% elsif "#{pin.category.name}" == "ruby" %>
                       <%= image_tag('ruby-logo-thumbnail.png') %>
                     <% end %>
                   <% end %>
@@ -42,11 +42,10 @@
   <% else %>
     <h4>Would you like to create and save your pins? Go right ahead!</h4>
   <% end %>
-  <h4>Add a new one here:
+  <h4>Add a new pin here:
     <a href= <%= "#{new_pin_path}" %> >
       <i class="fa fa-plus"></i>  Create a New Pin
     </a>
   </h4>
 </div>
-
 <hr/>
