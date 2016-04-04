@@ -20092,3 +20092,162 @@ Processing by UsersController#logout as
   Rendered users/logout.erb within layouts/application (0.1ms)
   [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
 Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2016-04-04 18:27:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (2.8ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 261ms (Views: 247.1ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/login" for ::1 at 2016-04-04 18:27:22 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zWQ4OE6mWPteiWTSoBE2DTlOnSV/Bq5yBp9J1jx2vz06x3+5VjXpshWTrmiubFzsjUDrjnIKRFgFyXArmpIT4g==", "email"=>"cynth43@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "cynth43@yahoo.com"]]
+Redirected to http://localhost:3000/users/32
+Completed 302 Found in 80ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/32" for ::1 at 2016-04-04 18:27:22 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 32]]
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-04-04 18:27:25 -0400
+Processing by PinsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered pins/_form.erb (33.6ms)
+  Rendered pins/new.erb within layouts/application (39.1ms)
+Completed 200 OK in 71ms (Views: 53.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pins" for ::1 at 2016-04-04 18:27:37 -0400
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 32]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered pins/index.erb within layouts/application (18.9ms)
+Completed 200 OK in 50ms (Views: 29.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-04-04 18:44:09 -0400
+Processing by PinsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered pins/_form.erb (2.8ms)
+  Rendered pins/new.erb within layouts/application (4.8ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/pins" for ::1 at 2016-04-04 18:55:42 -0400
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dEp9P/HWnRnvQAZY7sAy1J/Q44mV2Oje1OE3F8jEoJ6D6Tq+6UUsUKRazOLgvVg1K96VIpjUAvTXtw7qbiAMQQ==", "pin"=>{"user_id"=>"32", "title"=>"Ruby Food and Ruby", "category_id"=>"6", "slug"=>"ruby-food-rails", "url"=>"http://skillcrush.com", "text"=>"Yes, they all go together!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fcb39ce6498 @tempfile=#<Tempfile:/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/RackMultipart20160404-1979-1wyj3la.m4v>, @original_filename="IMG_0040.m4v", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"pin[image]\"; filename=\"IMG_0040.m4v\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2ab1e12bc23e3d760d14074c51a4934820160404-1979-6lpyhv.m4v'
+  [1m[35mPin Exists (0.5ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-food-rails' LIMIT 1
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2ab1e12bc23e3d760d14074c51a4934820160404-1979-wn8ytt.m4v'
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered pins/_form.erb (6.0ms)
+  Rendered pins/new.erb within layouts/application (9.6ms)
+Completed 200 OK in 1091ms (Views: 46.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-04-04 18:56:03 -0400
+Processing by PinsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered pins/_form.erb (2.0ms)
+  Rendered pins/new.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-04-04 18:56:03 -0400
+
+
+Started POST "/pins" for ::1 at 2016-04-04 19:00:08 -0400
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eOCpLp++QenBtlMRXbrYIqMmzembGm9xmfjE3tYMBMSPQ+6vhy3woIqsmatTx7LDFyi7QpYWhVuarv0jcOioGw==", "pin"=>{"user_id"=>"32", "title"=>"Ruby, Food, Yoga, Rails", "category_id"=>"6", "slug"=>"ruby-food-yoga-rails", "url"=>"http://skillcrush.com", "text"=>"Yes! they all go together!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fcb3b71a620 @tempfile=#<Tempfile:/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/RackMultipart20160404-1979-1jpatbu.jpg>, @original_filename="IMG_0038.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"pin[image]\"; filename=\"IMG_0038.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1nsejal.jpg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1bqtxvk.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1bqtxvk.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1bqtxvk.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/03c93bd64452d9642e906c7776574f8220160404-1979-hk7bzr'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1bqtxvk.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1bqtxvk.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1bqtxvk.jpg[0]' -auto-orient -resize "60x60>" '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/03c93bd64452d9642e906c7776574f8220160404-1979-ja9k9t'
+  [1m[36mPin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-food-yoga-rails' LIMIT 1[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-1j8c2kv.jpg'
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mPin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-food-yoga-rails' LIMIT 1[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/814260a9bf4597e178e85b59b61230e720160404-1979-16rep9o.jpg'
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "pins" ("title", "url", "slug", "text", "category_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "Ruby, Food, Yoga, Rails"], ["url", "http://skillcrush.com"], ["slug", "ruby-food-yoga-rails"], ["text", "Yes! they all go together!"], ["category_id", 6], ["image_file_name", "IMG_0038.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 1935731], ["image_updated_at", "2016-04-04 23:00:08.292518"], ["user_id", 32]]
+[paperclip] saving /pins/images/000/000/040/original/IMG_0038.jpg
+[AWS S3 200 1.213919 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>1935731,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: IMG_0038.jpg,:key=>"pins/images/000/000/040/original/IMG_0038.jpg")  
+
+[paperclip] saving /pins/images/000/000/040/medium/IMG_0038.jpg
+[AWS S3 200 0.154129 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>30398,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 03c93bd64452d9642e906c7776574f8220160404-1979-hk7bzr,:key=>"pins/images/000/000/040/medium/IMG_0038.jpg")  
+
+[paperclip] saving /pins/images/000/000/040/thumb/IMG_0038.jpg
+[AWS S3 200 0.068648 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>6490,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 03c93bd64452d9642e906c7776574f8220160404-1979-ja9k9t,:key=>"pins/images/000/000/040/thumb/IMG_0038.jpg")  
+
+  [1m[36m (13.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/pins/40
+Completed 302 Found in 3648ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/pins/40" for ::1 at 2016-04-04 19:00:11 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 40]]
+[AWS S3 200 0.033039 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/040/medium/IMG_0038.jpg")  
+
+  Rendered pins/show.erb within layouts/application (36.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 54ms (Views: 51.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-04-04 19:00:22 -0400
+Processing by PinsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=32)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT "pins".* FROM "pins" WHERE "pins"."user_id" = $1[0m  [["user_id", 32]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+[AWS S3 200 0.54429 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/040/original/IMG_0038.jpg")  
+
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered pins/index.erb within layouts/application (558.8ms)
+Completed 200 OK in 573ms (Views: 569.4ms | ActiveRecord: 1.5ms)
