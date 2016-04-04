@@ -1,8 +1,8 @@
 class PinsController < ApplicationController
-    before_action :require_login, except: [:index, :show, :show_by_name]
+    before_action :require_login, except: [:show, :show_by_name]
   
   def index
-     @pins = current_user.pins.all
+    @pin = current_user.pins.all
   end
   
   def show
@@ -39,7 +39,7 @@ class PinsController < ApplicationController
       end
  end
   
-def update
+ def update
     @pin = Pin.find(params[:id])
     @pin.update_attributes(pin_params)
     
