@@ -9,20 +9,16 @@ Rails.application.routes.draw do
   get "pins/name-:slug" => "pins#show_by_name", as: "pin_by_name"
   
   resources :pins
+  get "/library" => "pins#index"
   
   resources :users, except: [:index]
-  
-  get "/library" => "pins#index"
   
   get "signup" => "users#new", as: :signup
   
   get "/login" => "users#login"
   post "/login" => "users#authenticate"
+  post "/pins/repin/:id" => "pins#repin", as: :repin
   delete "logout" => "users#logout", as: :logout
-
-  
-  
-
   
     
   # Example of regular route:

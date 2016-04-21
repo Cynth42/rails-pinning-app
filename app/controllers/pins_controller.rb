@@ -2,16 +2,20 @@ class PinsController < ApplicationController
     before_action :require_login, except: [:show, :show_by_name]
   
   def index
-    @pins = current_user.pins.all
+      #@pins = current_user.pins.all
+      #Displays all pins
+      @pins = Pin.all
   end
   
   def show
     @pin = Pin.find(params[:id])
+    @users = @pin.users
   end
   
   def show_by_name
       #search for a Pin using the slug you grab from the URL
       @pin = Pin.find_by_slug(params[:slug])
+      @users = Pin.find_by_slug(params[:slug]).users
       render :show
   end
 
@@ -49,10 +53,17 @@ class PinsController < ApplicationController
         else
         @errors = @pin.errors.full_messages
         render :edit
-        
     end
-end
-
+ end
+ 
+ def repin
+     @pin = Pin.find(params[:id])
+     #create a pinning and assign it to the @pin’s pinnings, while setting the user to current_user all at once.
+     @pin.pinnings.create(user: current_user)
+     #redirect to the user's show page
+     redirect_to user_path(current_user)
+ end
+ 
 private
 
 # Use callbacks to share common setup or constraints between actions.
