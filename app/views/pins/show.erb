@@ -19,16 +19,18 @@
       <%= link_to "#{@pin.url}", @pin.url, html_options = {target: "_blank", class: "url"}%>
   </p>
   <br/>
-    <%= link_to 'repin_path(pin)', class: "btn btn-default", method: "post" do %>
+    <%= link_to repin_path(@pin), class: "btn btn-default", method: "post" do %>
     <i class="fa fa-thumb-tack"></i>
     Repin!
  <% end %>
 </div>
 <div class="pinned-by">
-    <h4>Pinned By</h4>
-    <% @users.each do |user| %>
-      <p class="btn"><%= user[:first_name] %> <%= user[:last_name] %></p>
-    <% end %>
+ <h4>This pin has been <i class="fa fa-heart"></i> by:</h4>
+   <ul>
+  <% @users.each do |user| %>
+    <li><%= user.last_name %></li>
+  <% end %>
+  </ul>
 </div>
   
 <br/>

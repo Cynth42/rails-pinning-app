@@ -8,6 +8,7 @@ RSpec.describe PinsController do
     
     after(:each) do
         if !@user.destroyed?
+            @user.pins.destroy_all
             @user.destroy
         end
     end
@@ -21,6 +22,12 @@ RSpec.describe PinsController do
         it 'populates @pins with current users pins' do
             get :index
             expect(assigns[:pins]).to eq(Pin.find_by_user_id(@user.id))
+        end
+        
+        it 'redirects to login when not logged in' do
+            logout(@user)
+            get :index
+            expect(response).to redirect_to(:login)
         end
     end
     
@@ -90,9 +97,15 @@ RSpec.describe PinsController do
             post :create, pin: @pin_hash
             expect(assigns[:errors].present?).to be(true)
         end
+        
+        it 'redirects to login when not logged in' do
+            logout(@user)
+            post :create, pin: @pin_hash
+            expect(response).to redirect_to(:login)
+        end
     end
     
-     describe "GET edit" do
+    describe "GET edit" do
         
          before(:each) do
            @pin = Pin.find(1)
@@ -118,6 +131,11 @@ RSpec.describe PinsController do
         it 'assigns an instance variable called @pin to the Pin with the appropriate id' do
             get :edit, id: @pin.id
             expect(assigns(:pin)).to eq(@pin)
+        end
+        it 'redirects to login when not logged in' do
+            logout(@user)
+            get :edit, id: @pin_id
+            expect(response).to redirect_to(:login)
         end
     end
     
@@ -148,6 +166,12 @@ RSpec.describe PinsController do
         it 'redirects to the show view' do
             expect(response).to redirect_to(pin_url(@pin))
         end
+        
+        it 'redirects to login when not logged in' do
+            logout(@user)
+            get :update, pin: @pin.title, id: @pin
+            expect(response).to redirect_to(:login)
+        end
     end
     
     describe "PUT errors" do
@@ -174,4 +198,36 @@ RSpec.describe PinsController do
             expect(assigns[:errors].present?).to be(true)
         end
     end
+    
+    describe "POST repin" do
+        before(:each) do
+            @user = FactoryGirl.create(:user)
+            login(@user)
+            @pin = FactoryGirl.create(:pin)
+        end
+        
+        after(:each) do
+            pin = Pin.find_by_slug("rails-wizard")
+            if !pin.nil?
+                pin.destroy
+            end
+            logout(@user)
+        end
+        
+        it 'responds with a redirect' do
+            post :repin, id: @pin.id
+            expect(response.redirect?).to be(true)
+        end
+        
+        it 'creates a user.pin' do
+            post :repin, id: @pin.id
+            expect(@user.pins.find(@pin.id).id).to eq(@pin.id)
+        end
+        
+        it 'redirects to the user show page' do
+            post :repin, id: @pin.id
+            expect(response).to redirect_to(user_path(@user))
+        end
+    end  
+
 end
