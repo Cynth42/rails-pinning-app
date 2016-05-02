@@ -22416,3 +22416,173 @@ FOREIGN KEY ("user_id")
   [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160221202030')[0m
   [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160228010538')
   [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325214637')[0m
+  [1m[36m (118.8ms)[0m  [1mDROP DATABASE IF EXISTS "coder-pinterest_test"[0m
+  [1m[35m (366.2ms)[0m  CREATE DATABASE "coder-pinterest_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (16.1ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "pinnings" ("id" serial primary key, "user_id" integer, "pin_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_pinnings_on_pin_id" ON "pinnings" USING btree ("pin_id")
+  [1m[36m (2.4ms)[0m  [1mCREATE  INDEX  "index_pinnings_on_user_id" ON "pinnings" USING btree ("user_id")[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "category_id" integer, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "user_id" integer) 
+  [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_pins_on_category_id" ON "pins" USING btree ("category_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_pins_on_user_id" ON "pins" USING btree ("user_id")
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "password_digest" character varying) [0m
+  [1m[35m (2.7ms)[0m  ALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_2d53c627fc"
+FOREIGN KEY ("pin_id")
+  REFERENCES "pins" ("id")
+
+  [1m[36m (2.0ms)[0m  [1mALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_a952eb7672"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.0ms)[0m  ALTER TABLE "pins" ADD CONSTRAINT "fk_rails_b1bb87f0aa"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (12.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (7.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160406030914')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318194553')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150320022457')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150409201335')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160217013053')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160221202030')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160228010538')
+  [1m[36m (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325214637')[0m
+  [1m[36m (118.1ms)[0m  [1mDROP DATABASE IF EXISTS "coder-pinterest_test"[0m
+  [1m[35m (337.3ms)[0m  CREATE DATABASE "coder-pinterest_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (15.9ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying) 
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "pinnings" ("id" serial primary key, "user_id" integer, "pin_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.9ms)[0m  CREATE  INDEX  "index_pinnings_on_pin_id" ON "pinnings" USING btree ("pin_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_pinnings_on_user_id" ON "pinnings" USING btree ("user_id")[0m
+  [1m[35m (5.7ms)[0m  CREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "category_id" integer, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "user_id" integer) 
+  [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_pins_on_category_id" ON "pins" USING btree ("category_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_pins_on_user_id" ON "pins" USING btree ("user_id")
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "password_digest" character varying) [0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_63ca9fa577"
+FOREIGN KEY ("pin_id")
+  REFERENCES "pins" ("id")
+
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_152a748a73"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  ALTER TABLE "pins" ADD CONSTRAINT "fk_rails_23dc3cd720"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (12.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (7.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160406030914')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318194553')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150320022457')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150409201335')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160217013053')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160221202030')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160228010538')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325214637')[0m
+  [1m[36m (117.8ms)[0m  [1mDROP DATABASE IF EXISTS "coder-pinterest_test"[0m
+  [1m[35m (235.8ms)[0m  CREATE DATABASE "coder-pinterest_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying) 
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "pinnings" ("id" serial primary key, "user_id" integer, "pin_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_pinnings_on_pin_id" ON "pinnings" USING btree ("pin_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_pinnings_on_user_id" ON "pinnings" USING btree ("user_id")[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "category_id" integer, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "user_id" integer) 
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_pins_on_category_id" ON "pins" USING btree ("category_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_pins_on_user_id" ON "pins" USING btree ("user_id")
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "password_digest" character varying) [0m
+  [1m[35m (2.5ms)[0m  ALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_cd2c48a215"
+FOREIGN KEY ("pin_id")
+  REFERENCES "pins" ("id")
+
+  [1m[36m (2.1ms)[0m  [1mALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_41e73569b4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "pins" ADD CONSTRAINT "fk_rails_15ec80bedd"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160406030914')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318194553')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150320022457')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150409201335')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160217013053')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160221202030')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160228010538')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325214637')[0m
+  [1m[36m (116.2ms)[0m  [1mDROP DATABASE IF EXISTS "coder-pinterest_test"[0m
+  [1m[35m (317.4ms)[0m  CREATE DATABASE "coder-pinterest_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (29.2ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "pinnings" ("id" serial primary key, "user_id" integer, "pin_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_pinnings_on_pin_id" ON "pinnings" USING btree ("pin_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_pinnings_on_user_id" ON "pinnings" USING btree ("user_id")[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "category_id" integer, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "user_id" integer) 
+  [1m[36m (1.9ms)[0m  [1mCREATE  INDEX  "index_pins_on_category_id" ON "pins" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_pins_on_user_id" ON "pins" USING btree ("user_id")
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "password_digest" character varying) [0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_4aca804508"
+FOREIGN KEY ("pin_id")
+  REFERENCES "pins" ("id")
+
+  [1m[36m (2.0ms)[0m  [1mALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_86d472e09c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  ALTER TABLE "pins" ADD CONSTRAINT "fk_rails_8d7c4142d3"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (12.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (8.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160406030914')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318194553')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150320022457')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150409201335')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160217013053')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160221202030')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160228010538')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325214637')[0m
+  [1m[36m (118.1ms)[0m  [1mDROP DATABASE IF EXISTS "coder-pinterest_test"[0m
+  [1m[35m (236.7ms)[0m  CREATE DATABASE "coder-pinterest_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying) 
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "pinnings" ("id" serial primary key, "user_id" integer, "pin_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.9ms)[0m  CREATE  INDEX  "index_pinnings_on_pin_id" ON "pinnings" USING btree ("pin_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_pinnings_on_user_id" ON "pinnings" USING btree ("user_id")[0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "category_id" integer, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "user_id" integer) 
+  [1m[36m (1.9ms)[0m  [1mCREATE  INDEX  "index_pins_on_category_id" ON "pins" USING btree ("category_id")[0m
+  [1m[35m (2.0ms)[0m  CREATE  INDEX  "index_pins_on_user_id" ON "pins" USING btree ("user_id")
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "password_digest" character varying) [0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_763a4df29c"
+FOREIGN KEY ("pin_id")
+  REFERENCES "pins" ("id")
+
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "pinnings" ADD CONSTRAINT "fk_rails_2125f4ac96"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "pins" ADD CONSTRAINT "fk_rails_131f3e97c0"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160406030914')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318194553')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150320022457')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150409201335')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160217013053')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160221202030')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160228010538')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325214637')[0m

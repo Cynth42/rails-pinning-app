@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 RSpec.describe PinsController do
     before(:each) do
         @user = FactoryGirl.create(:user)
@@ -19,9 +18,9 @@ RSpec.describe PinsController do
             expect(response).to render_template("index")
         end
         
-        it 'populates @pins with current users pins' do
+        it 'populates @pins with all pins' do
             get :index
-            expect(assigns[:pins]).to eq(Pin.find_by_user_id(@user.id))
+            expect(assigns[:pins]).to eq(Pin.all)
         end
         
         it 'redirects to login when not logged in' do
@@ -45,6 +44,11 @@ RSpec.describe PinsController do
         it 'assigns an instance variable to a new pin' do
             get :new
             expect(assigns(:pin)).to be_a_new(Pin)
+        end
+        it 'redirects to login when not logged in' do
+            logout(@user)
+            get :new
+            expect(response).to redirect_to(:login)
         end
     end
     
@@ -106,35 +110,44 @@ RSpec.describe PinsController do
     end
     
     describe "GET edit" do
+        before(:each) do
+            @pin_hash = {
+                title: "Rails Wizard",
+                url: "http://railswizard.org",
+                slug: "rails-wizard",
+                text: "A fun and helpful Rails Resource",
+                category_id: "2"}
+        end
         
-         before(:each) do
-           @pin = Pin.find(1)
-         end
-        
-        
+        after(:each) do
+            pin = Pin.find_by_slug("rails-wizard")
+            if !pin.nil?
+                pin.destroy
+            end
+        end
+
         # get to pins/id/edit
         # responds successfully
         it 'responds with successfully' do
-            get :edit, id: @pin.id
+            get :edit, id: @pin_hash
             expect(response.success?).to be(true)
-            #expect(response).to render_template(:edit)
         end
         
         # renders the edit template
         it 'renders the edit template' do
-            get :edit, id: @pin.id
+            get :edit, id: @pin_hash
             expect(response).to render_template(:edit)
-            #expect(response).to be_success
         end
         
         # assigns an instance variable called @pin to the Pin with the appropriate id
-        it 'assigns an instance variable called @pin to the Pin with the appropriate id' do
-            get :edit, id: @pin.id
-            expect(assigns(:pin)).to eq(@pin)
+        it 'assigns an instance variable to an existing pin' do
+            get :edit, id: @pin_hash
+            expect(assigns(:pin)).to eq(Pin.find_by_slug(@pin_hash[:slug]))
         end
+    
         it 'redirects to login when not logged in' do
             logout(@user)
-            get :edit, id: @pin_id
+            get :edit, id: @pin_hash
             expect(response).to redirect_to(:login)
         end
     end

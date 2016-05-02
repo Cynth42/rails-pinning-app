@@ -26,7 +26,9 @@ class PinsController < ApplicationController
   
 # GET /pin/1/edit
   def edit
-      @pin = Pin.find(params[:id])
+      #@pin = Pin.find(params[:id])
+      @pin = Pin.find_by_id(params[:id])
+
   end
 
 # POST /pin
