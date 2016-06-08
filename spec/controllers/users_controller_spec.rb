@@ -219,7 +219,6 @@ end
     end
  end
 
-
      it "redirects to login if user is not signed in" do
         user = User.create! valid_attributes
         get :show, {:id => user.to_param}, invalid_session
