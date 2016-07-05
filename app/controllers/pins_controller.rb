@@ -9,12 +9,14 @@ class PinsController < ApplicationController
   
   def show
     @pin = Pin.find(params[:id])
+    #set @users to the pin's users.
     @users = @pin.users
   end
   
   def show_by_name
-      #search for a Pin using the slug you grab from the URL
+      #search for a Pin using the slug you grab from the URL/using a named url instead of the id
       @pin = Pin.find_by_slug(params[:slug])
+      #set @users to the pin's users.
       @users = Pin.find_by_slug(params[:slug]).users
       render :show
   end
@@ -26,9 +28,7 @@ class PinsController < ApplicationController
   
 # GET /pin/1/edit
   def edit
-      #@pin = Pin.find(params[:id])
-      @pin = Pin.find_by_id(params[:id])
-
+      @pin = Pin.find(params[:id]) #@pin = Pin.find_by_id(params[:id])
   end
 
 # POST /pin
@@ -75,6 +75,6 @@ private
 
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
-      params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image, :user_id)
+      params.require(:pin).permit(:title, :category_id, :url, :slug, :text, :image, :user_id)
   end
 end

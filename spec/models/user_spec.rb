@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     #pending "add some examples to (or delete) #{__FILE__}"
     describe "self.authenticate" do
         before(:all) do
-            @user = User.create!(first_name: "Skillcrush", last_name: "Coder", email: "coder@skillcrush", password: "secret")
+            @user = FactoryGirl.create(:user)#@user = User.create!(first_name: "Skillcrush", last_name: "Coder", email: "coder@skillcrush", password: "secret")
             
         end
         
@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
         end
         
         it 'authenticates and returns a user when valid email and password passed in' do
-            @user.authenticate(@user.password)
+            @user.authenticate(@user.email, @user.password)
             expect(@user).to eq(@user)
         end
     end

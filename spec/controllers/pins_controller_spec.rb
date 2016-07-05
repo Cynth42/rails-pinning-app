@@ -3,15 +3,22 @@ require 'spec_helper'
 RSpec.describe PinsController do
     before(:each) do
         @user = FactoryGirl.create(:user)
+        @category = FactoryGirl.create(:category)
         login(@user)
     end
     
     after(:each) do
         if !@user.destroyed?
-            @user.pins.destroy_all
+            @user.pinnings.destroy_all
             @user.destroy
         end
+       
+       #category = Category.find_by_name("rails")
+        if !@category.nil?
+            @category.destroy
+       end
     end
+
     
     describe "GET index" do
         it 'renders the index template' do
@@ -163,7 +170,7 @@ RSpec.describe PinsController do
                  text: "A fun and helpful Rails Resource",
                  category: "2"
              }
-             @pin = Pin.create(  # had to create a pin so the test could edit it
+             @pin = Pin.create(  # created a pin so the test can edit it
                                title: "Rails Wizard",
                                url: "http://railswizard.org",
                                slug: "rails-wizard",
@@ -249,11 +256,12 @@ RSpec.describe PinsController do
         end
         
         after(:each) do
-            pin = Pin.find_by_slug("rails-wizard")#logout(@user)end
+            pin = Pin.find_by_slug("rails-wizard")
             if !pin.nil?
-                pin.destroy
+                 pin.destroy
             end
-         end
+            logout(@user)
+        end
         
         it 'responds with a redirect' do
             post :repin, id: @pin.id
