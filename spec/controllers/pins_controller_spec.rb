@@ -53,6 +53,7 @@ RSpec.describe PinsController do
             get :new
             expect(assigns(:pin)).to be_a_new(Pin)
         end
+        
         it 'redirects to login when not logged in' do
             logout(@user)
             get :new
@@ -119,12 +120,7 @@ RSpec.describe PinsController do
     
     describe "GET edit" do
         before(:each) do
-            @pin_hash = {
-                title: "Rails Wizard",
-                url: "http://railswizard.org",
-                slug: "rails-wizard",
-                text: "A fun and helpful Rails Resource",
-                category_id: "2"}
+            @pin = FactoryGirl.create(:pin)
         end
         
         after(:each) do
@@ -137,25 +133,25 @@ RSpec.describe PinsController do
         # get to pins/id/edit
         # responds successfully
         it 'responds with successfully' do
-            get :edit, id: @pin_hash
+            get :edit, id: @pin.id
             expect(response.success?).to be(true)
         end
         
         # renders the edit template
         it 'renders the edit template' do
-            get :edit, id: @pin_hash
+            get :edit, id: @pin.id
             expect(response).to render_template(:edit)
         end
         
         # assigns an instance variable called @pin to the Pin with the appropriate id
-        it 'assigns an instance variable to an existing pin' do
-            get :edit, id: @pin_hash
-            expect(assigns(:pin)).to eq(Pin.find_by_slug(@pin_hash[:slug]))
+        it 'assigns an instance variable called @pin to the Pin with the appropriate id' do
+            get :edit, id: @pin.id
+            expect(assigns(:pin)).to eq(Pin.find_by_slug(@pin[:slug]))
         end
     
         it 'redirects to login when not logged in' do
             logout(@user)
-            get :edit, id: @pin_hash
+            get :edit, id: @pin.id
             expect(response).to redirect_to(:login)
         end
     end
