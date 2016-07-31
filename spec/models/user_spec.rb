@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
         
         after(:each) do
             if !@user.destroyed?
-                @user.pins.destroy_all
+                #@user.pins.destroy_all
                 @user.destroy
             end
         end
