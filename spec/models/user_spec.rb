@@ -3,21 +3,22 @@ require 'helpers/rails_helper'
 
 RSpec.describe User, type: :model do
     #pending "add some examples to (or delete) #{__FILE__}"
-    describe "self.authenticate" do
+    describe "User authenticate method" do
         before(:all) do
-            @user = FactoryGirl.create(:user)#@user = User.create!(first_name: "Skillcrush", last_name: "Coder", email: "coder@skillcrush", password: "secret")
+            @user = FactoryGirl.create(:user)
             
         end
         
         after(:each) do
             if !@user.destroyed?
+                @user.pins.destroy_all
                 @user.destroy
             end
         end
         
         it 'authenticates and returns a user when valid email and password passed in' do
-            @user.authenticate(@user.email, @user.password)
-            expect(@user).to eq(@user)
+            user = User.authenticate(@user.email, @user.password)
+            expect(user).to eq(@user)
         end
     end
     

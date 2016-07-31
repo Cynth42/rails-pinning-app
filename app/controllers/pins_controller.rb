@@ -65,7 +65,7 @@ class PinsController < ApplicationController
      #redirect to the user's show page
      redirect_to user_path(current_user)
  end
- 
+ #Private methods below:
 private
 
 # Use callbacks to share common setup or constraints between actions.
