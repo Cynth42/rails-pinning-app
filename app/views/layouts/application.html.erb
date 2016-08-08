@@ -6,25 +6,53 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="container">
-  <% if !current_user.nil? %>
-  <div class="pull-right">     
-  <h3>
-    <%= "Hi, #{current_user.first_name} - #{current_user.id}!"%> |
-    <%= link_to "Logout", logout_path(current_user), method: :delete %> 
-  </h3>
-</div>
-<% else %>
-    <div class="user pull-right">
-      <h3>
-        <%= link_to "Sign Up", signup_path %> |
-        <%= link_to "Login", login_path %>
-      </h3>
-    </div>
-<% end %>
-<%= yield %>
-</div>
+	<div class="pull-right">
+			<% if logged_in? %>
+				<input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>"/>
+				<div class="dropdown">
+					<button id="dropdownMenu1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<%= "Hi, #{current_user.first_name}!"%>
+						<span class="caret"></span>
+					</button>
+ 
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<% current_user.boards.each do |board| %>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/boards/<%= board.id %>">
+									<%= board.name %>
+								</a>
+							</li>
+						<% end %>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation">
+								<%= link_to "Boards List", boards_path, "role" => "menuitem", "tabindex" => "-1" %>
+							</li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation">
+								<%= link_to "Add a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>
+							</li>
+							<li role="presentation">
+								<%= link_to "Add a Board", new_board_path, "role" => "menuitem", "tabindex" => "-1" %>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation">
+								<%= link_to "Home", root_path, "role" => "menuitem", "tabindex" => "-1" %>
+							</li>              
+							<li role="presentation">
+								<%= link_to "Logout", logout_path(current_user), :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
+							</li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation">
+							    <%= link_to "Sign Up", signup_path, "role" => "menuitem", "tabindex" => "-1"  %>
+					        </li>
+					</ul>
+ 				</div>			
+			<% end %>		
+	</div>
+    <%= yield %>
+  </div>
 </body>
 </html>

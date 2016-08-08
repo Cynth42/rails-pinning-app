@@ -19,13 +19,13 @@
       <%= link_to "#{@pin.url}", @pin.url, html_options = {target: "_blank", class: "url"}%>
   </p>
   <br/>
-    <%= link_to repin_path(@pin), class: "btn btn-default", method: "post" do %>
-    <i class="fa fa-thumb-tack"></i>
-    Repin!
- <% end %>
-</div>
+    <%= render partial: "shared/repin_form", locals: {pin: @pin} %>  
+  <br/>
+ <hr/>
+ 
 <div class="pinned-by">
  <h4>This pin has been <i class="fa fa-heart"></i> by:</h4>
+     
    <ul>
   <% @users.each do |user| %>
     <li><%= user.last_name %></li>

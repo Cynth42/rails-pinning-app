@@ -1,7 +1,15 @@
+<div class="header">
+  <h1>Users Info and Users' Pins</h1>
+</div>
+<hr/>
+
 <p id="notice"><%= notice %></p>
 
 <h2><%= "Welcome back, #{@user.first_name}!"%></h2>
-  
+
+<div class="panel panel-default">
+	<div class="panel-body">
+	  
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -21,6 +29,12 @@
   <strong>Password:</strong>
   <%= @user.password_digest %>
 </p>
+   </div>
+</div>
+
+<hr/>
+<%= render partial: "shared/pins_list" %>
+<hr/>
 
 <%= link_to 'Edit Your Info', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %> |
