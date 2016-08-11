@@ -45,3 +45,9 @@ Pin.create(
     lessons and solve problems, all in your browser!",
   slug: "ruby-monk",
   category_id: "1", image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil)
+
+User.create(
+            first_name: "John",
+            last_name: "Doe",
+            email: "jdoe@skillcrush.com",
+            password: "jdoe")

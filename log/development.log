@@ -26379,3 +26379,1080 @@ ActiveRecord::RecordNotFound (Couldn't find Board with 'id'=2 [WHERE "boards"."u
   Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
   Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
   Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (25.4ms)
+
+
+Started GET "/signup" for ::1 at 2016-08-11 11:25:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (28.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (43.6ms)
+  Rendered users/new.html.erb within layouts/application (51.9ms)
+Completed 200 OK in 384ms (Views: 328.6ms | ActiveRecord: 30.8ms)
+
+
+Started GET "/signup" for ::1 at 2016-08-11 11:26:04 -0400
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (9.0ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 25ms (ActiveRecord: 11.3ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 11:26:04 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-08-11 11:26:04 -0400
+
+
+Started GET "/login" for ::1 at 2016-08-11 11:26:28 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 81ms (Views: 78.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-08-11 11:26:28 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-08-11 11:26:28 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-08-11 11:26:28 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-08-11 11:26:28 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-08-11 11:26:28 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-08-11 11:26:28 -0400
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 11:26:28 -0400
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for ::1 at 2016-08-11 11:26:29 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 11:26:29 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-08-11 11:26:29 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-08-11 11:26:29 -0400
+
+
+Started GET "/signup" for ::1 at 2016-08-11 11:26:36 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 23ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 11:26:45 -0400
+Processing by BoardsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `boards' for nil:NilClass):
+  app/controllers/boards_controller.rb:9:in `index'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (47.3ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 13:13:40 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 242ms (Views: 230.5ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/login" for ::1 at 2016-08-11 13:13:53 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tcNaxazr4nj+oi4D0cUOonObMn2lOX+JPnUoAQB23F9P/taBlwOQHA569W1ZD6JwNjEju788OhGBdHa6mboSWA==", "email"=>"ml@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (18.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "ml@yahoo.com"]]
+Redirected to http://localhost:3000/users/36
+Completed 302 Found in 110ms (ActiveRecord: 19.1ms)
+
+
+Started GET "/users/36" for ::1 at 2016-08-11 13:13:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[35mUser Load (2.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 36]]
+  [1m[35mPin Load (23.9ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1  [["user_id", 36]]
+[AWS S3 200 0.257128 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  [1m[36mBoard Load (15.0ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered shared/_repin_form.erb (36.8ms)
+[AWS S3 200 0.032822 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (3.0ms)
+[AWS S3 200 0.030139 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (3.2ms)
+  Rendered shared/_pins_list.erb (653.9ms)
+  Rendered users/show.html.erb within layouts/application (658.3ms)
+Completed 500 Internal Server Error in 789ms
+
+ActionView::Template::Error (undefined method `followers_path' for #<#<Class:0x007fb63da9ce00>:0x007fb6422b7780>):
+    31:                            </li>           
+    32:                            <li role="separator" class="divider"></li>
+    33:                            <li>
+    34:                             <%= link_to "Followers", :followers %>
+    35:                            </li>
+    36:                            <li>
+    37:                             <%= link_to "Add New Follower", new_follower_path %>
+  app/views/layouts/application.html.erb:34:in `_app_views_layouts_application_html_erb__2320782911509182295_70210347267120'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (40.0ms)
+
+
+Started GET "/users/36" for ::1 at 2016-08-11 13:16:32 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 36]]
+  [1m[35mPin Load (0.4ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1  [["user_id", 36]]
+[AWS S3 200 0.584127 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  [1m[36mBoard Load (0.5ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered shared/_repin_form.erb (4.9ms)
+[AWS S3 200 0.031283 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.7ms)
+[AWS S3 200 0.027804 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.4ms)
+  Rendered shared/_pins_list.erb (663.1ms)
+  Rendered users/show.html.erb within layouts/application (663.8ms)
+Completed 200 OK in 683ms (Views: 678.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-08-11 13:16:33 -0400
+
+
+Started GET "/login" for ::1 at 2016-08-11 13:26:22 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 13:26:35 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.7ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered boards/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-08-11 13:26:52 -0400
+Processing by BoardsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered boards/_form.html.erb (4.9ms)
+  Rendered boards/new.html.erb within layouts/application (7.7ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/boards" for ::1 at 2016-08-11 13:29:50 -0400
+Processing by BoardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I44foLrDkKHg9QkNzCEEVCwbSGradBxL98UD9zxsqQvZs5PkgSvixRAt0mNE66iGabFZrMBxWdNIxF1MpaBnDA==", "board"=>{"name"=>"My pins", "user_id"=>"Cynthia"}, "commit"=>"Create Board"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.6ms)[0m  INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "My pins"], ["user_id", 0], ["created_at", "2016-08-11 17:29:50.805732"], ["updated_at", "2016-08-11 17:29:50.805732"]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "boards" violates foreign key constraint "fk_rails_8cd4beb8b5"
+DETAIL:  Key (user_id)=(0) is not present in table "users".
+: INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 21ms
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "boards" violates foreign key constraint "fk_rails_8cd4beb8b5"
+DETAIL:  Key (user_id)=(0) is not present in table "users".
+: INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"):
+  app/controllers/boards_controller.rb:34:in `block in create'
+  app/controllers/boards_controller.rb:33:in `create'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.1ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 13:35:14 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered boards/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 77ms (Views: 72.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/signup" for ::1 at 2016-08-11 13:35:30 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (3.1ms)
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2016-08-11 13:35:49 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.0.2) lib/puma/configuration.rb:221:in `call'
+  puma (3.0.2) lib/puma/server.rb:561:in `handle_request'
+  puma (3.0.2) lib/puma/server.rb:406:in `process_client'
+  puma (3.0.2) lib/puma/server.rb:271:in `block in run'
+  puma (3.0.2) lib/puma/thread_pool.rb:111:in `call'
+  puma (3.0.2) lib/puma/thread_pool.rb:111:in `block in spawn_thread'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (25.5ms)
+
+
+Started GET "/users" for ::1 at 2016-08-11 13:35:49 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.0.2) lib/puma/configuration.rb:221:in `call'
+  puma (3.0.2) lib/puma/server.rb:561:in `handle_request'
+  puma (3.0.2) lib/puma/server.rb:406:in `process_client'
+  puma (3.0.2) lib/puma/server.rb:271:in `block in run'
+  puma (3.0.2) lib/puma/thread_pool.rb:111:in `call'
+  puma (3.0.2) lib/puma/thread_pool.rb:111:in `block in spawn_thread'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (11.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (25.8ms)
+
+
+Started POST "/login" for ::1 at 2016-08-11 13:36:01 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"llrtaW/gutx7J7T9cSMK6WVFgoA973XodvRy6gsvABRsZ2EtVAjIuIv/b5P56aY7IO+TRifqMHDJ9SxRkuPOEw==", "email"=>"ml@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "ml@yahoo.com"]]
+Redirected to http://localhost:3000/users/36
+Completed 302 Found in 67ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/36" for ::1 at 2016-08-11 13:36:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 36]]
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 36]]
+[AWS S3 200 0.123873 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+  Rendered shared/_repin_form.erb (3.6ms)
+[AWS S3 200 0.027185 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.6ms)
+[AWS S3 200 0.02808 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.3ms)
+  Rendered shared/_pins_list.erb (197.6ms)
+  Rendered users/show.html.erb within layouts/application (198.3ms)
+Completed 200 OK in 215ms (Views: 211.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-08-11 13:36:15 -0400
+Processing by PinsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (12.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered pins/_form.erb (30.5ms)
+  Rendered pins/new.erb within layouts/application (32.7ms)
+Completed 200 OK in 51ms (Views: 34.4ms | ActiveRecord: 14.7ms)
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1[0m  [["slug", "learn-ruby"]]
+  [1m[35mPin Load (2.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1  [["slug", "learn-ruby"]]
+
+
+Started GET "/login" for ::1 at 2016-08-11 14:41:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 283ms (Views: 267.8ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/login" for ::1 at 2016-08-11 14:41:37 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EB7PCOkzhYPsnt67pSs0DH8NKCMmv3joHoyW6lKEgSzqI0NM0tv35xxGBdUt4ZjeOqc55Ty6PXChjchRy0hPKw==", "email"=>"ml@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "ml@yahoo.com"]]
+Redirected to http://localhost:3000/users/36
+Completed 302 Found in 69ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/36" for ::1 at 2016-08-11 14:41:37 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 36]]
+  [1m[36mPin Load (0.6ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 36]]
+[AWS S3 200 0.194356 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+  Rendered shared/_repin_form.erb (10.1ms)
+[AWS S3 200 0.029053 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.1ms)
+[AWS S3 200 0.029331 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (4.0ms)
+  Rendered shared/_pins_list.erb (408.4ms)
+  Rendered users/show.html.erb within layouts/application (411.3ms)
+Completed 200 OK in 441ms (Views: 424.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-08-11 14:41:48 -0400
+Processing by PinsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered pins/_form.erb (13.5ms)
+  Rendered pins/new.erb within layouts/application (14.5ms)
+Completed 200 OK in 35ms (Views: 31.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:52:16 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:52:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (3.4ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 285ms (Views: 271.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/assets/laptop-background-f28f63e8e16a5554622142d032c794020aacdd16a2939f4febd7b54822ad8181.jpg" for ::1 at 2016-08-11 15:52:53 -0400
+
+
+Started GET "/signup" for ::1 at 2016-08-11 15:54:16 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (13.9ms)
+  Rendered users/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 66ms (Views: 64.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 15:54:28 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered boards/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-08-11 15:54:33 -0400
+Processing by BoardsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered boards/_form.html.erb (1.9ms)
+  Rendered boards/new.html.erb within layouts/application (2.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 23ms (Views: 19.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/boards" for ::1 at 2016-08-11 15:54:36 -0400
+Processing by BoardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1quFoTHDt3S3PuwDWPwAkkf0HdSp5fbwbnltwbqEtpgslgnlCivFEEfmN23QNqxAAl4MErPgs2jReDN6I0h4nw==", "board"=>{"name"=>"", "user_id"=>""}, "commit"=>"Create Board"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered boards/_form.html.erb (2.5ms)
+  Rendered boards/new.html.erb within layouts/application (3.5ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 24ms (Views: 19.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 15:54:41 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered boards/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-08-11 15:54:43 -0400
+Processing by BoardsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered boards/_form.html.erb (1.3ms)
+  Rendered boards/new.html.erb within layouts/application (1.9ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/boards" for ::1 at 2016-08-11 15:54:57 -0400
+Processing by BoardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EBHQ/AZVbpI7cxm+6wC43D7qKtEoDq5I1T2v1LZQe/LqLFy4Pb0c9surwtBjyhQOe0A7FzIL69BqPPFvL5y19Q==", "board"=>{"name"=>"pins", "user_id"=>"cynthia"}, "commit"=>"Create Board"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "pins"], ["user_id", 0], ["created_at", "2016-08-11 19:54:57.409769"], ["updated_at", "2016-08-11 19:54:57.409769"]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "boards" violates foreign key constraint "fk_rails_8cd4beb8b5"
+DETAIL:  Key (user_id)=(0) is not present in table "users".
+: INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 7ms
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "boards" violates foreign key constraint "fk_rails_8cd4beb8b5"
+DETAIL:  Key (user_id)=(0) is not present in table "users".
+: INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"):
+  app/controllers/boards_controller.rb:34:in `block in create'
+  app/controllers/boards_controller.rb:33:in `create'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.0ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.6ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 15:55:13 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered boards/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 33ms (Views: 28.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 15:55:17 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered boards/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for ::1 at 2016-08-11 15:56:25 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q4XAgJb9h1xB1Fb2CIMmcDQsXYfBzEdninJc8DxS2ti5uEzErRX1OLEMjZiASYqicYZMQdvJAv81cwJLpZ4U3w==", "email"=>"ml@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "ml@yahoo.com"]]
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+Completed 200 OK in 90ms (Views: 17.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for ::1 at 2016-08-11 15:56:36 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0RfPY/QFIs3wFm0Ln3fSkp6XRheQEKB+HWlHanahKLwrKkMnz+1QqQDOtmUXvX5A2z1X0YoV5eaiaBnR723muw==", "email"=>"ml@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "ml@yahoo.com"]]
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 82ms (Views: 13.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:56:42 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-08-11 15:56:42 -0400
+
+
+Started POST "/login" for ::1 at 2016-08-11 15:56:51 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"az/r4FW8N6VH3pRHWiM+oXG/ewCW6Ber3Hopz0SwnByRAmekblRFwbcGTynS6ZJzNBVqxoztUjNje3d03XxSGw==", "email"=>"ml@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "ml@yahoo.com"]]
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+Completed 200 OK in 86ms (Views: 18.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:57:08 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:57:10 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-08-11 15:57:10 -0400
+
+
+Started POST "/login" for ::1 at 2016-08-11 15:57:19 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eAQfoOOdd/7iP9eQsuopWpyTPC61Wa8l9ep/pCguKlyCOZPk2HUFmhLnDP46IIWI2Tkt6K9c6r1K6yEfseLkWw==", "email"=>"ml@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "ml@yahoo.com"]]
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 86ms (Views: 16.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:57:30 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:57:32 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme.self-c47e5de2daab674872713b8e1066b4ca5f69e2437ff6dd0ee3ffc4b21557fc00.css?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/application.self-323e993ee5ba5f2fd1001647f625e81aca367470641fac116d5f81410982ab75.css?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/pins.self-87bbd8fcafe95c806b43f6d0f17e720872c24c37b995eff21810a581b7a179b3.css?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-08-11 15:57:32 -0400
+
+
+Started POST "/login" for ::1 at 2016-08-11 15:57:51 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+0MfsRaEwO1tljGfvgpXodvdEpVWG+uFR0nfbvJIa+4BfpP1LWyyiZ1O6vE2wPtznncDU0werh34SIHVa4Sl6Q==", "email"=>"mm@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "mm@yahoo.com"]]
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+Completed 200 OK in 81ms (Views: 15.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:57:53 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2016-08-11 15:58:07 -0400
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/signup" for ::1 at 2016-08-11 15:58:25 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-08-11 15:59:16 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4+JRV47Mw+0UuapGSEbUzZqBLzfbt6K0ave9vJQSuOkZ390TtSSxieRhcSjAjHgf3ys+8cGy5yzV9uMHDd527g==", "user"=>{"first_name"=>"mee", "last_name"=>"lee", "email"=>"em@yahoo.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'em@yahoo.com' LIMIT 1
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "mee"], ["last_name", "lee"], ["email", "em@yahoo.com"], ["password_digest", "$2a$10$vwl1B0mnEkrRBnyjib1A8.BkmQm/aw.tJgE92SAR//1cAs6cR6ZpK"], ["created_at", "2016-08-11 19:59:16.744938"], ["updated_at", "2016-08-11 19:59:16.744938"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/37
+Completed 302 Found in 85ms (ActiveRecord: 9.3ms)
+
+
+Started GET "/users/37" for ::1 at 2016-08-11 15:59:16 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 37]]
+  [1m[36mPin Load (0.6ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 37]]
+  Rendered shared/_pins_list.erb (4.2ms)
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 37]]
+Completed 200 OK in 37ms (Views: 19.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/pins/new" for ::1 at 2016-08-11 15:59:40 -0400
+Processing by PinsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered pins/_form.erb (17.3ms)
+  Rendered pins/new.erb within layouts/application (18.2ms)
+Completed 200 OK in 42ms (Views: 33.9ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/pins" for ::1 at 2016-08-11 16:01:43 -0400
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IP6mexD/rWXDAfLiO71Lzm5/sBJ3HJpGlmpxK6DwDoPawyo/KxffATPZKYyzd+ccK9Wh1G0Z394pay+QOTzAhA==", "pin"=>{"user_id"=>"36", "title"=>"the rails", "category_id"=>"2", "slug"=>"the-rails", "url"=>"http://railswizards.com", "text"=>"rails, rails, rails", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fb8272d0e38 @tempfile=#<Tempfile:/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/RackMultipart20160811-6197-dhyjn8.gif>, @original_filename="icon_biggrin.gif", @content_type="image/gif", @headers="Content-Disposition: form-data; name=\"pin[image]\"; filename=\"icon_biggrin.gif\"\r\nContent-Type: image/gif\r\n">, "pinning"=>{"user_id"=>"36"}}, "commit"=>"Submit"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+Unpermitted parameter: pinning
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-1pysujk.gif'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-m7qj1o.gif[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-m7qj1o.gif[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-m7qj1o.gif' -coalesce -auto-orient -resize "300x300>" -layers "optimize" '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/7f67692dcc61755127f5354032e0ffd020160811-6197-2s7nvn'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-m7qj1o.gif[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-m7qj1o.gif[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-m7qj1o.gif' -coalesce -auto-orient -resize "60x60>" -layers "optimize" '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/7f67692dcc61755127f5354032e0ffd020160811-6197-maskpy'
+  [1m[36mPin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'the-rails' LIMIT 1[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/4df4ceb7628a8ed9e53620116a3990bf20160811-6197-1e211m1.gif'
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered pins/_form.erb (7.3ms)
+  Rendered pins/new.erb within layouts/application (8.3ms)
+Completed 200 OK in 188ms (Views: 27.8ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/pins" for ::1 at 2016-08-11 16:02:21 -0400
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zc/SJ4FzYDsSxjL77+SsvMgOvK2T2D6WSxib7QhNZxef8l5jupsSX+Ie6ZVnLgBujaSta4ndew70GcVWkYGpEA==", "pin"=>{"user_id"=>"36", "title"=>"learning rails", "category_id"=>"2", "slug"=>"learning-rails", "url"=>"http://railswizards.com", "text"=>"rails, rails, rails", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fb8271fd498 @tempfile=#<Tempfile:/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/RackMultipart20160811-6197-clb7i0.gif>, @original_filename="icon_lol.gif", @content_type="image/gif", @headers="Content-Disposition: form-data; name=\"pin[image]\"; filename=\"icon_lol.gif\"\r\nContent-Type: image/gif\r\n">, "pinning"=>{"user_id"=>"36"}}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+Unpermitted parameter: pinning
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1nl695y.gif'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1i4y8z9.gif[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1i4y8z9.gif[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1i4y8z9.gif' -coalesce -auto-orient -resize "300x300>" -layers "optimize" '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/3c72869470be37c014b8ac1654e5c61f20160811-6197-ibtals'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1i4y8z9.gif[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1i4y8z9.gif[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1i4y8z9.gif' -coalesce -auto-orient -resize "60x60>" -layers "optimize" '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/3c72869470be37c014b8ac1654e5c61f20160811-6197-1fd0m8j'
+  [1m[36mPin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'learning-rails' LIMIT 1[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-2kvloe.gif'
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'learning-rails' LIMIT 1[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/xw/z265bgqj0ll253cssdnd3x880000gn/T/2c5a2eb93604de2362680001682592f320160811-6197-1ruwd.gif'
+  [1m[35mSQL (8.2ms)[0m  INSERT INTO "pins" ("title", "category_id", "url", "slug", "text", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["title", "learning rails"], ["category_id", 2], ["url", "http://railswizards.com"], ["slug", "learning-rails"], ["text", "rails, rails, rails"], ["image_file_name", "icon_lol.gif"], ["image_content_type", "image/gif"], ["image_file_size", 336], ["image_updated_at", "2016-08-11 20:02:21.569804"], ["user_id", 36]]
+[paperclip] saving /pins/images/000/000/045/original/icon_lol.gif
+[AWS S3 200 0.225297 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>336,:content_type=>"image/gif",:data=>Paperclip::UploadedFileAdapter: icon_lol.gif,:key=>"pins/images/000/000/045/original/icon_lol.gif")  
+
+[paperclip] saving /pins/images/000/000/045/medium/icon_lol.gif
+[AWS S3 200 0.05861 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>336,:content_type=>"image/gif",:data=>Paperclip::FileAdapter: 3c72869470be37c014b8ac1654e5c61f20160811-6197-ibtals,:key=>"pins/images/000/000/045/medium/icon_lol.gif")  
+
+[paperclip] saving /pins/images/000/000/045/thumb/icon_lol.gif
+[AWS S3 200 0.055342 0 retries] put_object(:acl=>:public_read,:bucket_name=>"skillcrush-rails",:content_length=>336,:content_type=>"image/gif",:data=>Paperclip::FileAdapter: 3c72869470be37c014b8ac1654e5c61f20160811-6197-1fd0m8j,:key=>"pins/images/000/000/045/thumb/icon_lol.gif")  
+
+  [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/pins/45
+Completed 302 Found in 584ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/pins/45" for ::1 at 2016-08-11 16:02:22 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"45"}
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 45]]
+[AWS S3 200 0.027986 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/045/medium/icon_lol.gif")  
+
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+  Rendered shared/_repin_form.erb (6.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "pinnings" ON "users"."id" = "pinnings"."user_id" WHERE "pinnings"."pin_id" = $1[0m  [["pin_id", 45]]
+  Rendered pins/show.erb within layouts/application (40.4ms)
+Completed 200 OK in 64ms (Views: 56.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/pins/repin/45" for ::1 at 2016-08-11 16:02:30 -0400
+Processing by PinsController#repin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"geMrCuiqecqr4xFOStwWV5skjjavQNkJAiHOcVZ32Ql73qdO00ILrls7yiDCFrqF3o6f8LVFnJG9IJDKz7sXDg==", "pin"=>{"pinning"=>{"user_id"=>"36"}}, "button"=>"", "id"=>"45"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 45]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (24.4ms)[0m  [1mINSERT INTO "pinnings" ("user_id", "pin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 36], ["pin_id", 45], ["created_at", "2016-08-11 20:02:30.224527"], ["updated_at", "2016-08-11 20:02:30.224527"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/36
+Completed 302 Found in 43ms (ActiveRecord: 26.9ms)
+
+
+Started GET "/users/36" for ::1 at 2016-08-11 16:02:30 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 36]]
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1[0m  [["user_id", 36]]
+[AWS S3 200 0.157668 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  [1m[35mBoard Load (0.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 36]]
+  Rendered shared/_repin_form.erb (4.0ms)
+[AWS S3 200 0.026199 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.7ms)
+[AWS S3 200 0.026001 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.6ms)
+[AWS S3 200 0.044632 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/045/original/icon_lol.gif")  
+
+  Rendered shared/_repin_form.erb (3.2ms)
+  Rendered shared/_pins_list.erb (278.8ms)
+  Rendered users/show.html.erb within layouts/application (279.7ms)
+Completed 200 OK in 298ms (Views: 294.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/pins/repin/45" for ::1 at 2016-08-11 16:02:42 -0400
+Processing by PinsController#repin as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r+jkqmnZ7SbSSlzCOQnbFYnBmSYOE2anPeFPtOYJyyVV1WjuUjGfQiKSh6yxw3fHzGuI4BQWIz+C4BEPf8UFIg==", "pin"=>{"pinning"=>{"user_id"=>"36"}}, "button"=>"", "id"=>"45"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 45]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pinnings" ("user_id", "pin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 36], ["pin_id", 45], ["created_at", "2016-08-11 20:02:42.760813"], ["updated_at", "2016-08-11 20:02:42.760813"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/36
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/36" for ::1 at 2016-08-11 16:02:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 36]]
+  [1m[35mPin Load (0.6ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1  [["user_id", 36]]
+[AWS S3 200 0.587945 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered shared/_repin_form.erb (4.8ms)
+[AWS S3 200 0.024634 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (3.2ms)
+[AWS S3 200 0.026553 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/044/original/icon_mrgreen.gif")  
+
+  Rendered shared/_repin_form.erb (2.7ms)
+[AWS S3 200 0.026774 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/045/original/icon_lol.gif")  
+
+  Rendered shared/_repin_form.erb (2.7ms)
+[AWS S3 200 0.024628 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/045/original/icon_lol.gif")  
+
+  Rendered shared/_repin_form.erb (2.9ms)
+  Rendered shared/_pins_list.erb (723.3ms)
+  Rendered users/show.html.erb within layouts/application (724.2ms)
+Completed 200 OK in 746ms (Views: 742.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-11 17:19:48 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+  Rendered boards/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 23ms (Views: 16.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-08-11 17:19:50 -0400
+Processing by BoardsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered boards/_form.html.erb (1.4ms)
+  Rendered boards/new.html.erb within layouts/application (2.0ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 36]]
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/boards" for ::1 at 2016-08-11 17:20:03 -0400
+Processing by BoardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yhCRdDjNOtJw1AcFUzRl067X4yxqSz2ePxb30Y9zcq0wLR0wAyVItoAM3Gvb/skB633y6nBOeAaAF6lqFr+8qg==", "board"=>{"name"=>"pins", "user_id"=>"cynthia"}, "commit"=>"Create Board"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE (id=36)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "pins"], ["user_id", 0], ["created_at", "2016-08-11 21:20:03.538732"], ["updated_at", "2016-08-11 21:20:03.538732"]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "boards" violates foreign key constraint "fk_rails_8cd4beb8b5"
+DETAIL:  Key (user_id)=(0) is not present in table "users".
+: INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 9ms
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "boards" violates foreign key constraint "fk_rails_8cd4beb8b5"
+DETAIL:  Key (user_id)=(0) is not present in table "users".
+: INSERT INTO "boards" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"):
+  app/controllers/boards_controller.rb:34:in `block in create'
+  app/controllers/boards_controller.rb:33:in `create'
+
+
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.9ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.8ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cynthiaclinton/.rvm/gems/ruby-2.1.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (27.9ms)
