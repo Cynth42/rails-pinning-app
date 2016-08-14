@@ -75,6 +75,6 @@ private
 
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
-      params.require(:pin).permit(:title, :category_id, :url, :slug, :text, :image, :user_id)
+      params.require(:pin).permit(:title, :category_id, :url, :slug, :text, :image, :user_id, pinnings_attributes: [:board_id, :user_id])
   end
 end

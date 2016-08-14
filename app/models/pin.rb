@@ -10,5 +10,6 @@ class Pin < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   
-  accepts_nested_attributes_for :pinnings
+  accepts_nested_attributes_for :pinnings, allow_destroy: true
+
 end

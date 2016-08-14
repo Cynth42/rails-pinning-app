@@ -12,9 +12,9 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-       @board = current_user.boards.find(params[:id])
-       @pins = @board.pins
-  end
+      @board = current_user.boards.find(params[:id])
+      @pins = @board.pins
+    end
 
   # GET /boards/new
   def new
@@ -73,6 +73,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:name, :user_id)
+      params.require(:board).permit(:name, :user_id, pinnings_attributes: [:board_id, :user_id])
     end
 end
