@@ -23,17 +23,17 @@
   <br/>
  <hr/>
  
-<div class="pinned-by">
  <h4>This pin has been <i class="fa fa-heart"></i> by:</h4>
-     
-   <ul>
+    <% if @users %>
   <% @users.each do |user| %>
-    <li><%= user.last_name %></li>
+    <h5><%= user.first_name %> <%= user.last_name %></h5>
   <% end %>
-  </ul>
-</div>
-  
+<% else %>
+  <h5>No one clicked the repin button!</h5>
+<% end %>
 <br/>
+<hr/> 
+   
 <a href="/">
 <i class="fa fa-hand-o-left"></i>
   Back to Home
