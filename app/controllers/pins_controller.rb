@@ -34,15 +34,21 @@ class PinsController < ApplicationController
 # POST /pin
 # POST /pin.json
   def create
-      @pin = Pin.new(pin_params)
+      @pin = current_user.pins.new(pin_params)
+      
       if @pin.valid?
           @pin.save
+          if params[:pin][:pinning][:board_id]
+              board = Board.find(params[:pin][:pinning][:board_id])
+              current_user.pinnings.create(board: board, pin: @pin)
+              
+          end
           redirect_to pin_path(@pin)
-          else
+     else
           @errors = @pin.errors.full_messages
           render :new
 
-      end
+     end
  end
   
  def update

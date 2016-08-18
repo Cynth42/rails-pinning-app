@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
       #boards = Board.all
-      @boards = current_user.boards
+      @boards = current_user.boards.all
       
       
   end
