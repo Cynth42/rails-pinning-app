@@ -17,7 +17,7 @@ class PinsController < ApplicationController
       #search for a Pin using the slug you grab from the URL/using a named url instead of the id
       @pin = Pin.find_by_slug(params[:slug])
       #set @users to the pin's users.
-      @users = Pin.find_by_slug(params[:slug]).users
+      @users = User.joins(:pinnings).where("users.id = ? or pinnings.pin_id = ?", @pin.user_id, @pin.id).distinct #@users = Pin.find_by_slug(params[:slug]).users
       render :show
   end
 

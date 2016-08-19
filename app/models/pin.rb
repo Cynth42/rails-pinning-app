@@ -5,7 +5,7 @@ class Pin < ActiveRecord::Base
   has_many :users, through: :pinnings
   
   has_attached_file :image, styles: { medium: "300x300>", thumb: "60x60>" }, default_url: "http://placebear.com/300/300"
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } unless Rails.env.test?
+  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } 
   
   belongs_to :category
   belongs_to :user
