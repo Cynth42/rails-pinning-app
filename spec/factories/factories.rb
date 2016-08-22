@@ -15,7 +15,6 @@ FactoryGirl.define do
   factory :category do
       name "rails"
    end
-       
    
    factory :user do
      sequence(:email) { |n| "coder#{n}@skillcrush.com" }
@@ -26,7 +25,7 @@ FactoryGirl.define do
      
      after(:create) do |user|
         3.times do
-           user.pinnings.create(pin: FactoryGirl.create(:pin))
+           user.pinnings.create(pin: FactoryGirl.create(:pin), board: user.boards.first)
        end
    end
    
@@ -35,6 +34,10 @@ FactoryGirl.define do
        user
     end
  end
+   
+   factory :board do
+       name "My Pins!"
+   end
 end
    
     

@@ -38,10 +38,12 @@ class PinsController < ApplicationController
       
       if @pin.valid?
           @pin.save
-          if params[:pin][:pinning][:board_id]
-              board = Board.find(params[:pin][:pinning][:board_id])
-              current_user.pinnings.create(board: board, pin: @pin)
-              
+          
+          puts params.inspect
+          if params[:pin][:pinning][:board_id] #check if a board is selected
+              board = current_user.boards.find(params[:pin][:pinning][:board_id]) # find the selected board in the db
+              current_user.pinnings.create(board: board, pin: @pin) # create a new pinning with the board and pin as params
+                                                                    # and let the rails associations take care of the ids
           end
           redirect_to pin_path(@pin)
      else

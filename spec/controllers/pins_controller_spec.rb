@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe PinsController do
     before(:each) do
         @user = FactoryGirl.create(:user)
+        @board = @user.boards.first
         @category = FactoryGirl.create(:category)
         login(@user)
     end
@@ -10,15 +11,15 @@ RSpec.describe PinsController do
     after(:each) do
         if !@user.destroyed?
             @user.pinnings.destroy_all
+            @user.boards.destroy_all
             @user.destroy
         end
-       
+        
        #category = Category.find_by_name("rails")
         if !@category.nil?
             @category.destroy
        end
     end
-
     
     describe "GET index" do
         it 'renders the index template' do
@@ -68,7 +69,8 @@ RSpec.describe PinsController do
                 url: "http://railswizard.org",
                 slug: "rails-wizard",
                 text: "A fun and helpful Rails Resource",
-                category_id: "2"}
+                category_id: "2",
+                user_id: @user.id,}
         end
         
         after(:each) do
