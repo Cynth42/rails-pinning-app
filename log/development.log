@@ -37863,3 +37863,279 @@ Processing by UsersController#logout as
   Rendered users/logout.erb within layouts/application (0.9ms)
   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
 Completed 200 OK in 33ms (Views: 29.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/login" for ::1 at 2016-08-22 17:26:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (2.7ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 264ms (Views: 251.4ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/login" for ::1 at 2016-08-22 17:27:07 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HN7XY5kdiYT6rL0zU/I44MPyVE/2xZUssJCVBcDYywxjczDeioqm0OZ6DvpRdxuuGmXXwxnhygpqDnxW7zMYYw==", "email"=>"mem@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "mem@yahoo.com"]]
+Redirected to http://localhost:3000/users/38
+Completed 302 Found in 79ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/38" for ::1 at 2016-08-22 17:27:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 38]]
+  [1m[35mPin Load (0.8ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1  [["user_id", 38]]
+[AWS S3 404 0.189439 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBoard Load (0.4ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 38]]
+  Rendered shared/_repin_form.erb (23.7ms)
+[AWS S3 200 0.036197 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/047/original/icon_razz.gif")  
+
+  Rendered shared/_repin_form.erb (5.4ms)
+[AWS S3 200 0.029696 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/047/original/icon_razz.gif")  
+
+  Rendered shared/_repin_form.erb (2.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.9ms)
+[AWS S3 200 0.024329 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/065/original/icon_lol.gif")  
+
+  Rendered shared/_repin_form.erb (2.7ms)
+[AWS S3 200 0.024135 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/065/original/icon_lol.gif")  
+
+  Rendered shared/_repin_form.erb (3.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  Rendered shared/_pins_list.erb (657.2ms)
+  Rendered users/show.html.erb within layouts/application (660.2ms)
+Completed 200 OK in 701ms (Views: 670.9ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/pins/name-the-rubyists" for ::1 at 2016-08-22 17:27:25 -0400
+Processing by PinsController#show_by_name as HTML
+  Parameters: {"slug"=>"the-rubyists"}
+  [1m[35mPin Load (0.3ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."slug" = $1 LIMIT 1  [["slug", "the-rubyists"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.3ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 38]]
+  Rendered shared/_repin_form.erb (5.6ms)
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT DISTINCT "users".* FROM "users" INNER JOIN "pinnings" ON "pinnings"."user_id" = "users"."id" WHERE (users.id = 38 or pinnings.pin_id = 68)[0m
+  Rendered pins/show.erb within layouts/application (12.0ms)
+Completed 200 OK in 34ms (Views: 28.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/pins/68/edit" for ::1 at 2016-08-22 17:27:32 -0400
+Processing by PinsController#edit as HTML
+  Parameters: {"id"=>"68"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPin Load (0.2ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 68]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+  Rendered pins/_form.erb (11.8ms)
+  Rendered pins/edit.erb within layouts/application (12.7ms)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-08-22 17:27:40 -0400
+Processing by BoardsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered boards/_form.html.erb (10.7ms)
+  Rendered boards/new.html.erb within layouts/application (11.8ms)
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-22 17:27:45 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+  Rendered boards/index.html.erb within layouts/application (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 38]]
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/51/edit" for ::1 at 2016-08-22 17:27:49 -0400
+Processing by BoardsController#edit as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.2ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 51]]
+  Rendered boards/_form.html.erb (1.2ms)
+  Rendered boards/edit.html.erb within layouts/application (2.2ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/boards/51" for ::1 at 2016-08-22 17:27:58 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[35mBoard Load (0.3ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 51]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBoard Load (0.3ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1  [["user_id", 38], ["id", 51]]
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1[0m  [["board_id", 51]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+  Rendered shared/_repin_form.erb (3.2ms)
+  Rendered shared/_pins_list.erb (8.4ms)
+  Rendered boards/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 30ms (Views: 23.1ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/logout.38" for ::1 at 2016-08-22 18:14:25 -0400
+Processing by UsersController#logout as 
+  Parameters: {"authenticity_token"=>"QD8butjSsFFKfcD9A2Xcf4KqMVRrbFjun8ETPjqeYVc/kvwHy0WfBVarczQB4P8xWz2y2IRIB8hFX/ptFXWyOA=="}
+  Rendered users/logout.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2016-08-23 20:48:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Rendered users/login.erb within layouts/application (1.8ms)
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 336ms (Views: 291.0ms | ActiveRecord: 35.1ms)
+
+
+Started POST "/login" for ::1 at 2016-08-23 20:48:56 -0400
+Processing by UsersController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cuvXIkYmcCcq5W6Rol5eKc448s4l2eEmtaSQguTq8lQNRjCfVbFfczYz3Vig231nF69xQsr9vgBvOnnRywEhOw==", "email"=>"mem@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (9.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "mem@yahoo.com"]]
+Redirected to http://localhost:3000/users/38
+Completed 302 Found in 85ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/users/38" for ::1 at 2016-08-23 20:48:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mUser Load (2.8ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 38]]
+  [1m[35mPin Load (20.2ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."user_id" = $1  [["user_id", 38]]
+[AWS S3 404 0.254363 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/015/original/IMG_1094_(1).jpg") AWS::S3::Errors::NoSuchKey No Such Key
+
+  [1m[36mCategory Load (2.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBoard Load (20.2ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 38]]
+  Rendered shared/_repin_form.erb (43.2ms)
+[AWS S3 200 0.04612 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/047/original/icon_razz.gif")  
+
+  Rendered shared/_repin_form.erb (2.3ms)
+[AWS S3 200 0.028809 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/047/original/icon_razz.gif")  
+
+  Rendered shared/_repin_form.erb (2.6ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (3.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.1ms)
+[AWS S3 200 0.029139 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/065/original/icon_lol.gif")  
+
+  Rendered shared/_repin_form.erb (2.3ms)
+[AWS S3 200 0.034381 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/065/original/icon_lol.gif")  
+
+  Rendered shared/_repin_form.erb (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  Rendered shared/_pins_list.erb (809.9ms)
+  Rendered users/show.html.erb within layouts/application (816.2ms)
+Completed 200 OK in 877ms (Views: 783.2ms | ActiveRecord: 59.7ms)
+
+
+Started GET "/boards/new" for ::1 at 2016-08-23 20:49:16 -0400
+Processing by BoardsController#new as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered boards/_form.html.erb (25.4ms)
+  Rendered boards/new.html.erb within layouts/application (27.9ms)
+  [1m[36mBoard Load (0.5ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+Completed 200 OK in 53ms (Views: 48.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/boards" for ::1 at 2016-08-23 20:49:17 -0400
+Processing by BoardsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+  Rendered boards/index.html.erb within layouts/application (3.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1  [["user_id", 38]]
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/47" for ::1 at 2016-08-23 20:49:20 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"47"}
+  [1m[36mBoard Load (2.8ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1[0m  [["id", 47]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE (id=38)  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBoard Load (0.3ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."user_id" = $1 AND "boards"."id" = $2 LIMIT 1[0m  [["user_id", 38], ["id", 47]]
+  [1m[35mPin Load (0.5ms)[0m  SELECT "pins".* FROM "pins" INNER JOIN "pinnings" ON "pins"."id" = "pinnings"."pin_id" WHERE "pinnings"."board_id" = $1  [["board_id", 47]]
+[AWS S3 200 0.525773 0 retries] head_object(:bucket_name=>"skillcrush-rails",:key=>"pins/images/000/000/065/original/icon_lol.gif")  
+
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT "boards".* FROM "boards" WHERE "boards"."user_id" = $1[0m  [["user_id", 38]]
+  Rendered shared/_repin_form.erb (4.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_repin_form.erb (2.1ms)
+  Rendered shared/_pins_list.erb (542.1ms)
+  Rendered boards/show.html.erb within layouts/application (543.3ms)
+Completed 200 OK in 569ms (Views: 558.4ms | ActiveRecord: 4.6ms)
+
+
+Started DELETE "/logout.38" for ::1 at 2016-08-23 20:52:15 -0400
+Processing by UsersController#logout as 
+  Parameters: {"authenticity_token"=>"COleJ6oFEug5N4QlE4g0BC9wMcGbGCPbInLIAYKBbIB3RLmauZI9vCXhN+wRDRdK9ueyTXQ8fP347CFSrWq/7w=="}
+  Rendered users/logout.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (id=NULL)  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.4ms)

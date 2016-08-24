@@ -79,18 +79,18 @@ RSpec.describe BoardsController do
           # The name is required in the Board model, so we'll
           # make the name nil to test what happens with
           # invalid parameters
-          @board_hash[:name] = ""
+          @board_hash[:name] = nil
           post :create, board: @board_hash
           expect(response).to render_template(:new)
       end
       
-      # it 'assigns the @errors instance variable on error' do
-          # The name is required in the Board model, so we'll
-          # make the name nil to test what happens with invalid parameters
-     #    @board_hash[:name] = nil
-     #    post :create, board: @board_hash
-     #    expect(assigns[:@board.errors].present?).to be(true)
-     #end
+        it 'assigns the @errors instance variable on error' do
+        #The name is required in the Board model, so we'll
+        #make the name nil to test what happens with invalid parameters
+        @board_hash[:name] = ""
+        post :create, board: @board_hash
+        expect(assigns[:board].errors.any?).to be(true)
+     end
 
 
       it 'redirects to the login page if user is not logged in' do
@@ -102,13 +102,13 @@ RSpec.describe BoardsController do
   
     describe "GET #show" do
       it "assigns the requested board" do
-          get :show, id: @board.id
+          get :show, {:id => @board.to_param.inspect}
           expect(assigns[:board]).to eq(@board)
       end
       
       it "assigns the @pins variable with the board's pins" do
-          get :show, id: @board.id
-          expect(assigns[:pins]).to eq(@board.pins)
+          get :show, {:id => @board.to_param.inspect}
+          expect(assigns[:pins]).to eq(@pin)
       end
   end
 

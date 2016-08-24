@@ -70,7 +70,8 @@ RSpec.describe PinsController do
                 slug: "rails-wizard",
                 text: "A fun and helpful Rails Resource",
                 category_id: "2",
-                user_id: @user.id,}
+                user_id: @user.id,
+                pinning: {board_id: @user.boards, user_id: @user.id}}
         end
         
         after(:each) do
