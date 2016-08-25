@@ -102,13 +102,13 @@ RSpec.describe BoardsController do
   
     describe "GET #show" do
       it "assigns the requested board" do
-          get :show, {:id => @board.to_param.inspect}
+          get :show, id: @board.id #get :show, {:id => @board.to_param.inspect}
           expect(assigns[:board]).to eq(@board)
       end
       
       it "assigns the @pins variable with the board's pins" do
-          get :show, {:id => @board.to_param.inspect}
-          expect(assigns[:pins]).to eq(@pin)
+          get :show, id: @board.id #get :show, {:id => @board.to_param.inspect}
+          expect(assigns[:pins]).to eq(@board.pins)
       end
   end
 

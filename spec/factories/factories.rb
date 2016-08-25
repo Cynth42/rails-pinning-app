@@ -24,6 +24,7 @@ FactoryGirl.define do
      
      
      after(:create) do |user|
+        user.boards << FactoryGirl.create(:board)
         3.times do
            user.pinnings.create(pin: FactoryGirl.create(:pin), board: user.boards.first)
        end
