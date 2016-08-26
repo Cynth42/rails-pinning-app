@@ -9,7 +9,9 @@ class CreateBoards < ActiveRecord::Migration
     add_foreign_key :boards, :users
     add_reference :pinnings, :board, index: true
     
-    Users.all.each do |user|
+    
+    users = User.all
+    users.all.each do |user|
         board = user.boards.create(name: "My Pins!")
         user.pinnings.each do |pinning|
            board.pinnings << pinning
