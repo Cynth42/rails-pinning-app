@@ -9,14 +9,12 @@ class CreateBoards < ActiveRecord::Migration
     add_foreign_key :boards, :users
     add_reference :pinnings, :board, index: true
     
-    
-    users = User.all
-    users.all.each do |user|
+    User.all.each do |user|
         board = user.boards.create(name: "My Pins!")
         user.pinnings.each do |pinning|
-           board.pinnings << pinning
+              board.pinnings << pinning
         end
-    end
+     end
   end
 end
   
