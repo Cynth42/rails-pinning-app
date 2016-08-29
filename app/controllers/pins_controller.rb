@@ -40,7 +40,7 @@ class PinsController < ApplicationController
       if @pin.valid?
            @pin.save
            
-           Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id].inspect)
+           Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
            redirect_to pin_path(@pin)
      else
           @errors = @pin.errors.full_messages
