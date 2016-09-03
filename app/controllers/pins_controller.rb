@@ -24,6 +24,7 @@ class PinsController < ApplicationController
 # GET /pin/new
   def new
       @pin = Pin.new
+      @pinnable_boards = current_user.pinnable_boards
   end
   
 # GET /pin/1/edit
@@ -39,7 +40,7 @@ class PinsController < ApplicationController
       
       if @pin.valid?
            @pin.save
-           
+           #puts Pinning.inspect
            Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
            redirect_to pin_path(@pin)
      else
