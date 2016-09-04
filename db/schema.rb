@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160902234940) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "followers", ["follower_id"], name: "index_followers_on_follower_id", using: :btree
   add_index "followers", ["user_id"], name: "index_followers_on_user_id", using: :btree
 
   create_table "pinnings", force: :cascade do |t|
