@@ -23,7 +23,7 @@
 	  <%= f.label :user_name, value: user_to_follow.first_name + ' ' + user_to_follow.last_name %>
 	  <b>Board</b>
 		  <% user_to_follow.boards.each do |board| %>
-			<a class="btn btn-primary btn-sm" href="~/boards/<%= board.id %>">
+			<a class="btn btn-primary btn-sm" href="/boards/<%= board.id %>">
 				<%= board.name %>
 			</a>
 		  <% end %>	    

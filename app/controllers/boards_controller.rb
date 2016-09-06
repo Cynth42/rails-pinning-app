@@ -37,11 +37,13 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to @board, notice: 'Board was successfully created.' }
-        format.json { render :show, status: :created, location: @board }
+          @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+    
+          format.html { redirect_to @board, notice: 'Board was successfully created.' }
+          format.json { render :show, status: :created, location: @board }
       else
-        format.html { render :new }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
+          format.html { render :new }
+          format.json { render json: @board.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,6 +51,7 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1
   # PATCH/PUT /boards/1.json
   def update
+      
     respond_to do |format|
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }

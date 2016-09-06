@@ -16,10 +16,6 @@
     <%= f.text_field :name %>
   </div>
   
-  <div class="field">
-    <%= f.hidden_field :user_id, value: current_user.id %>
-  </div>
-  
   <% if !@followers.nil? %>
   <%= f.fields_for :board_pinners do |p| %>
     <div class="form-group">
@@ -27,6 +23,10 @@
     </div>
    <% end %>
  <% end %>
+  
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
   
   <div class="actions">
     <%= f.submit %>
