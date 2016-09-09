@@ -14,13 +14,14 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-      @board = current_user.boards.find(params[:id])
+      @board = Board.find(params[:id])
       @pins = @board.pins
     end
 
   # GET /boards/new
   def new
       @board = Board.new
+      
   end
 
   # GET /boards/1/edit
@@ -36,9 +37,9 @@ class BoardsController < ApplicationController
        @board = current_user.boards.new(board_params)
 
     respond_to do |format|
+        
       if @board.save
           @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
-    
           format.html { redirect_to @board, notice: 'Board was successfully created.' }
           format.json { render :show, status: :created, location: @board }
       else
