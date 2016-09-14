@@ -34,12 +34,15 @@ class BoardsController < ApplicationController
   # POST /boards
   # POST /boards.json
   def create
-       @board = current_user.boards.new(board_params)
-
-    respond_to do |format|
+      
+      @board = Board.new(board_params)
+      
+      respond_to do |format|
         
-      if @board.save
-          @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+        if @board.save
+            @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+            puts @board_pinner.inspect
+          
           format.html { redirect_to @board, notice: 'Board was successfully created.' }
           format.json { render :show, status: :created, location: @board }
       else
@@ -52,8 +55,8 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1
   # PATCH/PUT /boards/1.json
   def update
-      
-    respond_to do |format|
+     respond_to do |format|
+        
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }
         format.json { render :show, status: :ok, location: @board }
@@ -82,6 +85,15 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:name, :user_id, board_pinners_attributes: [:user_id, :board_id])
+        params.require(:board).permit(:name, :user_id, board_pinners_attributes: [:user_id, board_id])
     end
 end
+
+
+
+
+
+
+
+
+
