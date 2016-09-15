@@ -21,8 +21,8 @@ class BoardsController < ApplicationController
   # GET /boards/new
   def new
       @board = Board.new
-      @followers = current_user.user_followers
-      render :new
+      #@followers = current_user.user_followers
+      #render :new
   end
 
   # GET /boards/1/edit
@@ -61,8 +61,10 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1.json
   def update
       
-      #@board = Board.find(params[:id])
-      #@board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+      @board = Board.find(params[:id])
+      @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+      puts @board_pinner.inspect
+
       
 
      respond_to do |format|
