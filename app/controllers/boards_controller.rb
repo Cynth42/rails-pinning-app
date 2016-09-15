@@ -21,7 +21,8 @@ class BoardsController < ApplicationController
   # GET /boards/new
   def new
       @board = Board.new
-      
+      @followers = current_user.user_followers
+      render :new
   end
 
   # GET /boards/1/edit
@@ -37,15 +38,19 @@ class BoardsController < ApplicationController
       
       @board = Board.new(board_params)
       
+
       respond_to do |format|
         
-        if @board.save
-            @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
-            puts @board_pinner.inspect
+      if @board.save
           
+          @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+          puts @board_pinner.inspect
+
+            
+            
           format.html { redirect_to @board, notice: 'Board was successfully created.' }
           format.json { render :show, status: :created, location: @board }
-      else
+     else
           format.html { render :new }
           format.json { render json: @board.errors, status: :unprocessable_entity }
       end
@@ -55,6 +60,11 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1
   # PATCH/PUT /boards/1.json
   def update
+      
+      #@board = Board.find(params[:id])
+      #@board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+      
+
      respond_to do |format|
         
       if @board.update(board_params)
@@ -85,7 +95,7 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-        params.require(:board).permit(:name, :user_id, board_pinners_attributes: [:user_id, board_id])
+        params.require(:board).permit(:name, :user_id, board_pinners_attributes: [:user_id, :board_id])
     end
 end
 
