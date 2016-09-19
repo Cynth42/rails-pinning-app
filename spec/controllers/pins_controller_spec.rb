@@ -251,7 +251,10 @@ RSpec.describe PinsController do
         before(:each) do
             @user = FactoryGirl.create(:user)
             login(@user)
-            @pin = FactoryGirl.create(:pin)
+            @pin = FactoryGirl.create(:pin),
+            {user_id: @user.id,
+            pinning: {board_id: @user.boards, user_id: @user.id}}
+
         end
         
         after(:each) do

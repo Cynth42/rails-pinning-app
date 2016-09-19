@@ -5,8 +5,9 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-      #@boards = Board.all
-      @boards = current_user.pinnable_boards
+      @boards = Board.all
+      #@boards = current_user.pinnable_boards
+      
       
       
   end
@@ -35,16 +36,14 @@ class BoardsController < ApplicationController
   # POST /boards
   # POST /boards.json
   def create
-      
       @board = Board.new(board_params)
       
-
       respond_to do |format|
         
       if @board.save
           
-          @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
-          puts @board_pinner.inspect
+          #@board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+          #puts @board_pinner.inspect
 
             
             
@@ -61,9 +60,9 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1.json
   def update
       
-      @board = Board.find(params[:id])
-      @board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
-      puts @board_pinner.inspect
+      #@board = Board.find(params[:id])
+      #@board_pinner = BoardPinner.create!(board_params[:board_pinners_attributes])
+      #puts @board_pinner.inspect
 
       
 

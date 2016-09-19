@@ -35,13 +35,13 @@ class PinsController < ApplicationController
 # POST /pin
 # POST /pin.json
   def create
+      
       @pin = current_user.pins.new(pin_params)
       
       
       if @pin.valid?
            @pin.save
-           #puts Pinning.inspect
-           Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
+           Pinning.create(user_id: session[:user_id], pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
            redirect_to pin_path(@pin)
      else
           @errors = @pin.errors.full_messages
@@ -65,12 +65,17 @@ class PinsController < ApplicationController
  
  def repin
      @pin = Pin.find(params[:id])
-     #create a pinning and assign it to the @pin’s pinnings, while setting the user to current_user all at once.
-     @pin.pinnings.create(user: current_user)
+     Pinning.create(user_id: session[:user_id], pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
      #redirect to the user's show page
      redirect_to user_path(current_user)
+     
+     #create a pinning and assign it to the @pin’s pinnings, while setting the user to current_user all at once.
+     #@pin.pinnings.create(user: current_user)
+    #redirect to the user's show page
+    #redirect_to user_path(current_user)
  end
- #Private methods below:
+ 
+#Private methods below:
 private
 
 # Use callbacks to share common setup or constraints between actions.

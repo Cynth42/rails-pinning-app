@@ -47,7 +47,7 @@ Pin.create(
   category_id: "1", image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil)
 
 User.create(
-            first_name: "John",
+            first_name: "Johns",
             last_name: "Doe",
             email: "jdoe@skillcrush.com",
             password: "jdoe")
