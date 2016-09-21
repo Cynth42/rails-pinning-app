@@ -6,7 +6,5 @@ class Board < ActiveRecord::Base
   has_many :pins, through: :pinnings
   has_many :board_pinners, dependent: :destroy
   
-  accepts_nested_attributes_for :board_pinners
-
-  
+  accepts_nested_attributes_for :board_pinners, allow_destroy: true
 end

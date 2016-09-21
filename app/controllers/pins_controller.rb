@@ -48,11 +48,11 @@ class PinsController < ApplicationController
           render :new
 
      end
- end
+  end
   
- def update
-    @pin = Pin.find(params[:id])
-    @pin.update_attributes(pin_params)
+  def update
+     @pin = Pin.find(params[:id])
+     @pin.update_attributes(pin_params)
     
     if @pin.valid?
         @pin.save
@@ -61,9 +61,9 @@ class PinsController < ApplicationController
         @errors = @pin.errors.full_messages
         render :edit
     end
- end
+  end
  
- def repin
+  def repin
      @pin = Pin.find(params[:id])
      Pinning.create(user_id: session[:user_id], pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
      #redirect to the user's show page
@@ -73,10 +73,10 @@ class PinsController < ApplicationController
      #@pin.pinnings.create(user: current_user)
     #redirect to the user's show page
     #redirect_to user_path(current_user)
- end
+  end
  
 #Private methods below:
-private
+  private
 
 # Use callbacks to share common setup or constraints between actions.
 #def set_pin
@@ -85,6 +85,7 @@ private
 
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
-      params.require(:pin).permit(:title, :category_id, :url, :slug, :text, :image, :user_id )
+      puts params.inspect
+      params.require(:pin).permit(:title, :category_id, :url, :slug, :text, :image, :user_id, pinning_attributes: [:user_id, :pin_id, :board_id] )
   end
 end
