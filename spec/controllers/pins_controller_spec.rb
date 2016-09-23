@@ -71,7 +71,7 @@ RSpec.describe PinsController do
                 text: "A fun and helpful Rails Resource",
                 category_id: "2",
                 user_id: @user.id,
-                pinning: {board_id: @user.boards, user_id: @user.id}}
+                pinnings: {board_id: @user.boards, user_id: @user.id}}
         end
         
         after(:each) do
@@ -253,7 +253,7 @@ RSpec.describe PinsController do
             login(@user)
             @pin = FactoryGirl.create(:pin),
             {user_id: @user.id,
-            pinning: {board_id: @user.boards, user_id: @user.id}}
+            pinnings: {board_id: @user.boards, user_id: @user.id}}
 
         end
         
