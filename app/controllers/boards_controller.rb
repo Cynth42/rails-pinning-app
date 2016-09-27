@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
       @boards = Board.all
-        end
+  end
 
   # GET /boards/1
   # GET /boards/1.json
@@ -48,6 +48,7 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1.json
   def update
     respond_to do |format|
+        @board = Board.find(params[:id])
         
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }
@@ -77,6 +78,7 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def board_params
+    puts params.inspect
     params.require(:board).permit(:name, :user_id, board_pinners_attributes: [:user_id, :board_id])
   end
 end

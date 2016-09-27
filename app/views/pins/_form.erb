@@ -44,12 +44,12 @@
       <%= f.file_field :image  %>
      </p>
       
-     <%= f.fields_for :pinning do |p| %>
+     <%= f.fields_for :pinnings do |p| %>
        <div class="form-group">
        <label>Which board?</label>
        <%= p.collection_select(:board_id, current_user.pinnable_boards, :id, :name, {}, {class:   "form-control"}) %>
     <%= p.hidden_field :user_id, value: current_user.id %>    
-  <% end %>  
+   <% end %>  
 
     <p class="submit-button">
       <%= f.submit "Submit", :class => 'btn btn-primary' %>

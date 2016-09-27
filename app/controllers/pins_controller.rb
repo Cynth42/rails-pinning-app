@@ -24,6 +24,7 @@ class PinsController < ApplicationController
 # GET /pin/new
   def new
       @pin = Pin.new
+      @pin.pinnings.build
       @pinnable_boards = current_user.pinnable_boards
   end
   
@@ -35,13 +36,11 @@ class PinsController < ApplicationController
 # POST /pin
 # POST /pin.json
   def create
-      
-      @pin = current_user.pins.new(pin_params)
-      
-      
+     @pin = current_user.pins.new(pin_params)
+     
       if @pin.valid?
            @pin.save
-           Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinnings][:board_id])
+           #Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinnings][:board_id])
            redirect_to pin_path(@pin)
      else
           @errors = @pin.errors.full_messages
@@ -65,14 +64,14 @@ class PinsController < ApplicationController
  
   def repin
      @pin = Pin.find(params[:id])
-     Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinnings][:board_id])
+     Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
      #redirect to the user's show page
      redirect_to user_path(current_user)
      
      #create a pinning and assign it to the @pin’s pinnings, while setting the user to current_user all at once.
      #@pin.pinnings.create(user: current_user)
-    #redirect to the user's show page
-    #redirect_to user_path(current_user)
+     #edirect to the user's show page
+     #redirect_to user_path(current_user)
   end
  
 #Private methods below:
@@ -86,6 +85,6 @@ class PinsController < ApplicationController
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
       puts params.inspect
-      params.require(:pin).permit(:title, :category_id, :slug, :url, :text, :image, :user_id, pinnings_attributes: [ :user_id, :pin_id, :board_id ])
+      params.require(:pin).permit(:title, :category_id, :slug, :url, :text, :image, :user_id, pinnings_attributes: [:board_id, :pin_id, :user_id])
   end
 end
