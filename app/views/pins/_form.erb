@@ -29,30 +29,30 @@
       <%= f.search_field :slug, placeholder: 'my-title' %> 
     </p>
 
-     <p>
-      <label for="pin_url">URL</label><br />
+    <p>
+      <label for="pin_url">Url</label><br />
       <%= f.url_field :url, placeholder: 'http://example.com' %> 
-     </p>
+    </p>
 
-     <p>
+    <p>
       <label for="pin_text">Text</label><br />
       <%= f.text_area :text, placeholder: 'description' %> 
-     </p>
+    </p>
 
-     <p class="form-group">
+    <p class="form-group">
       <label for="pin_image">Image</label><br />
       <%= f.file_field :image  %>
      </p>
       
-     <%= f.fields_for :pinnings do |p| %>
+    <%= f.fields_for :pinnings do |p| %>
        <div class="form-group">
        <label>Which board?</label>
        <%= p.collection_select(:board_id, current_user.pinnable_boards, :id, :name, {}, {class:   "form-control"}) %>
     <%= p.hidden_field :user_id, value: current_user.id %>    
    <% end %>  
 
-    <p class="submit-button">
-      <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    <p class="actions">
+      <%= f.submit :class => 'btn btn-primary' %>
     </p>
   </div>
 <% end %>

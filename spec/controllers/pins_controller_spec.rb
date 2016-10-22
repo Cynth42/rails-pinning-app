@@ -5,7 +5,8 @@ RSpec.describe PinsController do
         @user = FactoryGirl.create(:user_with_boards)
         @board = @user.boards.first
         @board_pinner = BoardPinner.create(user: @user, board: FactoryGirl.create(:board))
-        @category = FactoryGirl.create(:category)
+        #@category = FactoryGirl.create(:category)
+        @pin = FactoryGirl.create(:pin)
         login(@user)
     end
     
@@ -15,12 +16,13 @@ RSpec.describe PinsController do
             @user.boards.destroy_all
             @user.destroy
         end
+    end
         
        #category = Category.find_by_name("rails")
-        if !@category.nil?
-            @category.destroy
-       end
-    end
+       # if !@category.nil?
+       #     @category.destroy
+       #end
+       #end
     
     describe "GET index" do
         it 'renders the index template' do
@@ -77,7 +79,8 @@ RSpec.describe PinsController do
                 text: "A fun and helpful Rails Resource",
                 category_id: "2",
                 user_id: @user.id,
-                pinnings: {board_id: @user.boards, user_id: @user.id}}
+                pinnings_attributes: [{board_id: @board.id, user_id: @user.id}]
+                }
         end
         
         after(:each) do
@@ -106,9 +109,9 @@ RSpec.describe PinsController do
         it 'pins to a board for which the user is a board_pinner' do
             @pin_hash[:pinnings_attributes] = []
             board = @board_pinner.board
-            @pin_hash[:pinnings_attributes] << {board_id: board.id, user_id: @user.id}
+            @pin_hash[:pinnings_attributes] << {board_id: @board.id, user_id: @user.id}
             post :create, pin: @pin_hash
-            pinning = BoardPinner.where("user_id=? AND board_id=?", @user.id, @board.id) #passing an array of pinnings_attributes
+            pinning = Pinning.where("board_id=? AND user_id=?", @board.id, @user.id,) #passing an array of pinnings_attributes
             #<set expectation here>
             expect(pinning.present?).to be(true)
             
@@ -183,20 +186,16 @@ RSpec.describe PinsController do
     # making a POST request to /pins with valid parameters
      describe "PUT update" do
          before(:each) do
-             @pin_hash = {
+             
+            @pin_hash = {
                  title: "Rails Wizard",
                  url: "http://railswizard.org",
                  slug: "rails-wizard",
                  text: "A fun and helpful Rails Resource",
-                 category: "2"
+                 category_id: "2",
+                 pinnings_attributes: [{board_id: @board.id, user_id: @user.id}]
              }
-             @pin = Pin.create(  # created a pin so the test can edit it
-                               title: "Rails Wizard",
-                               url: "http://railswizard.org",
-                               slug: "rails-wizard",
-                               text: "A fun and helpful spec Resource",
-                               category_id: "2")
-         end
+        end
          
          after(:each) do
              pin = Pin.find_by_slug("rails-wizard")
@@ -207,53 +206,49 @@ RSpec.describe PinsController do
 
         # responds with success
         it 'responds with success' do
-            put :update, pin: @pin_hash, id: @pin
+            put :update, pin: @pin_hash, id: @pin.id
             expect(response.redirect?).to be(true)
         end
         
         # updates a pin
         it 'updates a pin' do
             @pin_hash[:title] = "test"
-            put :update, pin: @pin_hash, id: @pin
+            put :update, pin: @pin_hash, id: @pin.id
             expect(assigns(:pin)[:title]).to eq(@pin_hash[:title])
         end
         
         # redirects to the show view
         it 'redirects to the show view' do
-            put :update, pin: @pin_hash, id: @pin
+            put :update, pin: @pin_hash, id: @pin.id
             expect(response).to redirect_to(pin_url(@pin))
-        end
-        
-        it 'assigns the @errors instance variable on error' do
-            @pin_hash[:title] = ""
-            put :update, pin: @pin_hash, id: @pin
-            expect(assigns[:errors].present?).to be(true)
-        end
-        
-        it 'renders edit when there is an error' do
-            @pin_hash[:title] = ""
-            put :update, pin: @pin_hash, id: @pin
-            expect(response).to render_template(:edit)
         end
         
         it 'redirects to login when not logged in' do
             logout(@user)
-            get :update, pin: @pin_hash, id: @pin
+            get :update, pin: @pin_hash, id: @pin.id
             expect(response).to redirect_to(:login)
         end
     end
-    
-    describe "PUT errors" do
+    # making a POST request to /pins with invalid parameters
+    describe "PUT update errors" do
         before(:each) do
             @pin = Pin.find(1)
+            @pin_hash = {
+                title: "Rails Wizard",
+                url: "http://railswizard.org",
+                slug: "rails-wizard",
+                text: "A fun and helpful Rails Resource",
+                category_id: "2",
+                pinnings_attributes: [{}]
+            }
+
         end
         
-        # making a POST request to /pins with invalid parameters
         it 'redisplays edit form on error' do
             # The title is required in the Pin model, so we'll
             # delete the title from the @pin in order
             # to test what happens with invalid parameters
-            put :update, id: @pin, pin: {title: nil}
+            put :update, id: @pin.id, pin: {title: nil}
             # renders the edit view
             expect(response).to  render_template(:edit)
         end
@@ -265,6 +260,18 @@ RSpec.describe PinsController do
             put :update, id: @pin, pin: {title: nil}
             # assigns an @errors instance variable
             expect(assigns[:errors].present?).to be(true)
+        end
+        
+        it 'renders edit when there is an error' do
+            @pin_hash[:title] = ""
+            put :update, pin: @pin_hash, id: @pin.id
+            expect(response).to render_template(:edit)
+        end
+
+        it 'redirects to login when not logged in' do
+            logout(@user)
+            get :update, pin: @pin_hash, id: @pin.id
+            expect(response).to redirect_to(:login)
         end
     end
     
@@ -279,19 +286,19 @@ RSpec.describe PinsController do
         after(:each) do
             pin = Pin.find_by_slug("rails-wizard")
             if !pin.nil?
-                 pin.destroy
+               pin.destroy
             end
             logout(@user)
         end
         
         it 'responds with a redirect' do
-            post :repin, id: @pin.id
+            post :repin, id: @pin.id, pin: { pinning: { board_id: @board.id, user_id: @user.id } }
             expect(response.redirect?).to be(true)
         end
         
         it 'creates a user.pin' do
-            post :repin, id: @pin.id
-            expect(@user.pins.find(@pin.id).id).to eq(@pin.id)
+            post :repin, id: @pin.id, pin: { pinning: { board_id: @board.id, user_id: @user.id } }
+            expect(assigns(:pin)).to eq(@pin) #expect(@user.pins.find(@pin.id).id).to eq(@pin.id)
         end
          
         it 'creates a pinning to a board on which the user is a board_pinner' do
@@ -315,7 +322,7 @@ RSpec.describe PinsController do
         end
         
         it 'redirects to the user show page' do
-            post :repin, id: @pin.id
+            post :repin, id: @pin.id, pin: { pinning: { board_id: @board.id, user_id: @user.id } }
             expect(response).to redirect_to(user_path(@user))
         end
     end

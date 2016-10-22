@@ -1,5 +1,5 @@
 class Board < ActiveRecord::Base
-  validates_presence_of :name
+  validates_presence_of :name, uniqness: true
   
   belongs_to :user
   has_many :pinnings, dependent: :destroy

@@ -14,7 +14,7 @@ RSpec.describe BoardsController do
          @user.destroy
      end
    end
- 
+     
   describe "GET index" do
       
      it 'assigns @boards to be the users pinnable boards' do
@@ -114,8 +114,8 @@ RSpec.describe BoardsController do
     
   describe "GET #edit" do
       it 'responds successfully' do
-         get :edit, id: @board.id, followers: @user.user_followers
-         expect(response.success?).to be(true)
+          get :edit, id: @board.id, followers: @user.user_followers
+          expect(response.success?).to be(true)
       end
         
       it 'renders the edit view' do
@@ -124,13 +124,13 @@ RSpec.describe BoardsController do
       end
         
       it 'assigns an instance variable to an existing board' do
-         get :edit, id: @board.id, followers: @user.user_followers
-         expect(assigns(:board)).to eq(Board.find_by_name(@board.name))
+          get :edit, id: @board.id, followers: @user.user_followers
+          expect(assigns(:board)).to eq(Board.find_by_name(@board.name))
       end
         
       it 'redirects to the login page if user is not logged in' do
         logout(@user)
-        get :edit, id: @board.id, followers: @user.user_followers
+        get :edit, id: @board.id
         expect(response).to redirect_to(:login)
       end
         
@@ -141,13 +141,13 @@ RSpec.describe BoardsController do
    end
     
   describe "PUT #update" do
-      before(:each) do
-            @board_hash = {
-                name: @board.name
+     before(:each) do
+          @board_hash = {
+             name: @board.name
             }
-      end
+     end
         
-      it 'responds with a redirect' do
+     it 'responds with a redirect' do
             put :update, board: @board_hash, id: @board.id
             expect(response.redirect?).to be(true)
      end
@@ -172,9 +172,9 @@ RSpec.describe BoardsController do
           @board_hash[:name] = ""
           put :update, id: @board.id, board: @board_hash
           expect(response).to render_template(:edit)
-     end
+    end
         
-     it 'assigns the @errors instance variable on error' do
+    it 'assigns the @errors instance variable on error' do
          # The name is required in the Board model, so we'll
          # set the name in the @board_hash to blank in order
          # to test what happens with invalid parameters
@@ -194,7 +194,7 @@ RSpec.describe BoardsController do
         # We get the user's first follower - this is the one we want to let pin on @board
         user_to_let_pin = @user.followers.first
         puts user_to_let_pin.inspect
-        puts "user_to_let_pin: #{user_to_let_pin.id}, board id: #{@board.id}"
+        
             
         # Now we're updating the hash we pass in to add
         # board_pinners_attributes with our user_id

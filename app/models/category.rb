@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-    validates :name, uniqueness: true
+    validates_presence_of :name, uniqness: true
     has_many :pins
 end

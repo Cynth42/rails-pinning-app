@@ -8,7 +8,7 @@ RSpec.describe FollowersController do
     
     after(:each) do
         if !@user.destroyed?
-            Follower.where("follower_id=?", @user.id).first.destroy_all
+            Follower.where("follower_id=? OR user_id=?", @user.id, @user.id).destroy_all
             @user.destroy
         end
     end
@@ -74,6 +74,8 @@ RSpec.describe FollowersController do
             follower = Follower.where("user_id=? AND follower_id=?", @user.id, @follower_user.id)
             if !follower.empty?
                 follower.destroy_all
+                @follower_user.pins.destroy_all
+                @follower_user.followers.destroy_all
                 @follower_user.destroy
             end
         end
