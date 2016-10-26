@@ -52,6 +52,7 @@ FactoryGirl.define do
    factory :pinning do
       pin
       user
+      board
    end
  
    factory :board do

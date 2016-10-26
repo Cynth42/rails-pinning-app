@@ -186,6 +186,9 @@ RSpec.describe PinsController do
     # making a POST request to /pins with valid parameters
      describe "PUT update" do
          before(:each) do
+            @user = FactoryGirl.create(:user_with_boards)
+            @board = @user.boards.first
+            login(@user)
              
             @pin_hash = {
                  title: "Rails Wizard",
@@ -232,7 +235,8 @@ RSpec.describe PinsController do
     # making a POST request to /pins with invalid parameters
     describe "PUT update errors" do
         before(:each) do
-            @pin = Pin.find(1)
+            #@pin = Pin.find(1)
+            
             @pin_hash = {
                 title: "Rails Wizard",
                 url: "http://railswizard.org",
@@ -277,7 +281,8 @@ RSpec.describe PinsController do
     
     describe "POST repin" do
         before(:each) do
-            @user = FactoryGirl.create(:user)
+            @user = FactoryGirl.create(:user_with_boards)
+            @board = @user.boards.first
             login(@user)
             @pin = FactoryGirl.create(:pin)
 

@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     end
     
     describe "Uniqueness" do
-        it {should validate_uniqueness_of(:email) }
+       it {should validate_uniqueness_of(:email) }
 
     end
 end

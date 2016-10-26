@@ -1,4 +1,3 @@
-#require 'byebug'
 class PinsController < ApplicationController
     before_action :require_login, except: [:show, :show_by_name]
   
@@ -12,6 +11,7 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     #set @users to the pin's users.
     @users = @pin.users
+    @board = @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id])
   end
   
   def show_by_name
@@ -32,6 +32,8 @@ class PinsController < ApplicationController
 # GET /pin/1/edit
   def edit
       @pin = Pin.find(params[:id])
+      @boards = @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id])
+      render :edit
       
   end
 
@@ -51,8 +53,8 @@ class PinsController < ApplicationController
   end
   
   def update
-     @pin = Pin.find(params[:id])
-     @pin.update_attributes(pin_params)
+     @pin = Pin.pinnings.find_by(params[:id, board_id: @user.boards, user_id: @user.id])
+     @pin.pinnings.update_attributes(pin_params)
      
      if @pin.valid?
         @pin.save
@@ -64,7 +66,6 @@ class PinsController < ApplicationController
   end
  
   def repin
-     
      @pin = Pin.find(params[:id])
      Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
      #redirect to the user's show page
@@ -87,6 +88,6 @@ class PinsController < ApplicationController
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
       puts params.inspect
-      params.require(:pin).permit(:title, :category_id, :slug, :url, :text, :image, :user_id, pinnings_attributes: [:board_id, :user_id])
+      params.require(:pin).permit(:title, :category_id, :slug, :url, :text, :image, :user_id, pinnings_attributes: [:board_id, :user_id, :id])
   end
 end
