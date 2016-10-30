@@ -10,6 +10,9 @@ FactoryGirl.define do
        text "A great tool for beginning developers"
        slug
        category
+       user
+       
+       
     end
    
     factory :category do

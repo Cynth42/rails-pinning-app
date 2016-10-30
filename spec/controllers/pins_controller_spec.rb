@@ -1,14 +1,15 @@
+
 require 'spec_helper'
 
 RSpec.describe PinsController do
     before(:each) do
         @user = FactoryGirl.create(:user_with_boards)
+        login(@user)
         @board = @user.boards.first
         @board_pinner = BoardPinner.create(user: @user, board: FactoryGirl.create(:board))
         #@category = FactoryGirl.create(:category)
         @pin = FactoryGirl.create(:pin)
-        login(@user)
-    end
+            end
     
     after(:each) do
         if !@user.destroyed?
@@ -72,6 +73,7 @@ RSpec.describe PinsController do
     
     describe "POST create" do
         before(:each) do
+            
             @pin_hash = {
                 title: "Rails Wizard",
                 url: "http://railswizard.org",
@@ -147,16 +149,9 @@ RSpec.describe PinsController do
     
     describe "GET edit" do
         before(:each) do
-            @pin = FactoryGirl.create(:pin)
+            @pin = Pin.find(1)
         end
         
-        after(:each) do
-            pin = Pin.find_by_slug("rails-wizard")
-            if !pin.nil?
-                pin.destroy
-            end
-        end
-
         # get to pins/id/edit
         # responds successfully
         it 'responds with successfully' do
@@ -185,20 +180,23 @@ RSpec.describe PinsController do
     
     # making a POST request to /pins with valid parameters
      describe "PUT update" do
-         before(:each) do
+        before(:each) do
             @user = FactoryGirl.create(:user_with_boards)
-            @board = @user.boards.first
             login(@user)
-             
+            @board = @user.boards.first
+            @pin = @board.pins.first
+            
             @pin_hash = {
-                 title: "Rails Wizard",
-                 url: "http://railswizard.org",
-                 slug: "rails-wizard",
-                 text: "A fun and helpful Rails Resource",
-                 category_id: "2",
-                 pinnings_attributes: [{board_id: @board.id, user_id: @user.id}]
-             }
-        end
+                title: "Rails Wizard",
+                url: "http://railswizard.org",
+                slug: "rails-wizard",
+                text: "A fun and helpful Rails Resource",
+                category_id: "2",
+                user_id: @user.id,
+                pinnings_attributes: [{board_id: @board.id, user_id: @user.id}]
+            }
+            
+          end
          
          after(:each) do
              pin = Pin.find_by_slug("rails-wizard")
@@ -234,16 +232,17 @@ RSpec.describe PinsController do
     end
     # making a POST request to /pins with invalid parameters
     describe "PUT update errors" do
+        
         before(:each) do
-            #@pin = Pin.find(1)
-            
-            @pin_hash = {
-                title: "Rails Wizard",
-                url: "http://railswizard.org",
-                slug: "rails-wizard",
-                text: "A fun and helpful Rails Resource",
-                category_id: "2",
-                pinnings_attributes: [{}]
+           
+            @error_hash = {
+            title: "",
+            url: "",
+            slug: "",
+            text: "",
+            category_id: "",
+            user_id: "",
+            pinnings_attributes: [{}]
             }
 
         end
@@ -267,14 +266,14 @@ RSpec.describe PinsController do
         end
         
         it 'renders edit when there is an error' do
-            @pin_hash[:title] = ""
-            put :update, pin: @pin_hash, id: @pin.id
+            @error_hash[:title] = ""
+            put :update, pin: @error_hash, id: @pin.id
             expect(response).to render_template(:edit)
         end
 
         it 'redirects to login when not logged in' do
             logout(@user)
-            get :update, pin: @pin_hash, id: @pin.id
+            get :update, pin: @error_hash, id: @pin.id
             expect(response).to redirect_to(:login)
         end
     end
@@ -282,7 +281,6 @@ RSpec.describe PinsController do
     describe "POST repin" do
         before(:each) do
             @user = FactoryGirl.create(:user_with_boards)
-            @board = @user.boards.first
             login(@user)
             @pin = FactoryGirl.create(:pin)
 

@@ -11,7 +11,7 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     #set @users to the pin's users.
     @users = @pin.users
-    @board = @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id])
+    @board = @pin.pinnings
   end
   
   def show_by_name
@@ -25,14 +25,13 @@ class PinsController < ApplicationController
 # GET /pin/new
   def new
       @pin = Pin.new
-      @pin.pinnings.build.inspect
+      @pin.pinnings.build
       @pinnable_boards = current_user.pinnable_boards
   end
   
 # GET /pin/1/edit
   def edit
       @pin = Pin.find(params[:id])
-      @boards = @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id])
       render :edit
       
   end
@@ -53,8 +52,10 @@ class PinsController < ApplicationController
   end
   
   def update
-     @pin = Pin.pinnings.find_by(params[:id, board_id: @user.boards, user_id: @user.id])
-     @pin.pinnings.update_attributes(pin_params)
+     @pin = Pin.find(params[:id])
+     @pin.update_attributes(pin_params)
+
+     @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id]).update_attributes(board_id: params[:pin][:pinning][:board_id])
      
      if @pin.valid?
         @pin.save
@@ -62,10 +63,11 @@ class PinsController < ApplicationController
      else
         @errors = @pin.errors.full_messages
         render :edit
-    end
+     end
   end
  
   def repin
+      
      @pin = Pin.find(params[:id])
      Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
      #redirect to the user's show page
