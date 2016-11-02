@@ -168,7 +168,7 @@ RSpec.describe PinsController do
         # assigns an instance variable called @pin to the Pin with the appropriate id
         it 'assigns an instance variable called @pin to the Pin with the appropriate id' do
             get :edit, id: @pin.id
-            expect(assigns(:pin)).to eq(Pin.find_by_slug(@pin[:slug]))
+            expect(assigns(:pin)).to eq(@pin) #expect(assigns(:pin)).to eq(Pin.find_by_slug(@pin[:slug]))
         end
     
         it 'redirects to login when not logged in' do

@@ -11,7 +11,6 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     #set @users to the pin's users.
     @users = @pin.users
-    @board = @pin.pinnings
   end
   
   def show_by_name
@@ -54,9 +53,7 @@ class PinsController < ApplicationController
   def update
      @pin = Pin.find(params[:id])
      @pin.update_attributes(pin_params)
-
-     @pin.pinnings.find_by(params[board_id: @user.boards, user_id: @user.id]).update_attributes(board_id: params[:pin][:pinning][:board_id])
-     
+    
      if @pin.valid?
         @pin.save
         redirect_to pin_path(@pin)
@@ -67,15 +64,16 @@ class PinsController < ApplicationController
   end
  
   def repin
-      
+    
      @pin = Pin.find(params[:id])
+     
      Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])
      #redirect to the user's show page
      redirect_to user_path(current_user)
      
      #create a pinning and assign it to the @pin’s pinnings, while setting the user to current_user all at once.
      #@pin.pinnings.create(user: current_user)
-     #edirect to the user's show page
+     #redirect to the user's show page
      #redirect_to user_path(current_user)
   end
  
@@ -90,6 +88,6 @@ class PinsController < ApplicationController
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
       puts params.inspect
-      params.require(:pin).permit(:title, :category_id, :slug, :url, :text, :image, :user_id, pinnings_attributes: [:board_id, :user_id, :id])
+      params.require(:pin).permit(:title, :category_id, :slug, :url, :text, :image, :user_id, pinnings_attributes: [:user_id, :id, :board_id])
   end
 end
