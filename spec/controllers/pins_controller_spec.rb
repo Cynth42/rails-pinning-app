@@ -9,7 +9,8 @@ RSpec.describe PinsController do
         @board_pinner = BoardPinner.create(user: @user, board: FactoryGirl.create(:board))
         #@category = FactoryGirl.create(:category)
         @pin = FactoryGirl.create(:pin)
-            end
+    
+    end
     
     after(:each) do
         if !@user.destroyed?
@@ -181,9 +182,9 @@ RSpec.describe PinsController do
     # making a POST request to /pins with valid parameters
      describe "PUT update" do
         before(:each) do
-            @user = FactoryGirl.create(:user_with_boards)
-            login(@user)
-            @board = @user.boards.first
+            #@user = FactoryGirl.create(:user_with_boards)
+            #login(@user)
+            #@board = @user.boards.first
             @pin = @board.pins.first
             
             @pin_hash = {

@@ -15,19 +15,25 @@
     </div>
   <% end %>
   
-  <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
+   <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
 		<i class="fa fa-users"></i>
 		Follow!
 	<% end %>
-  <%= f.label :user_name, value: user_to_follow.first_name + ' ' + user_to_follow.last_name %>
-	  <b>Board</b>
-	  <ul>
-		 <% user_to_follow.boards.each do |board| %>
-		 <li><a role="menuitem" tabindex="-1" href="/boards/<%= board.id %>">
-				<%= board.name %>
-			</li>	
-		  </a>
-		<% end %>	    
-   </div>
+   <%= f.label :user_name, value: user_to_follow.first_name + ' ' + user_to_follow.last_name %>
+  
+    <div class="text-center"><strong>
+      <h5>Boards</h5>
+    </div>
+     <ul>
+      <% user_to_follow.boards.each do |board| %>
+       <li><a role="menuitem" tabindex="-1" href="/boards/<%= board.id %>">
+        <%= board.name %>
+       </li>
+       </a>
+    </ul>
+  <% end %>
+  </div>
 <% end %>
+  
+	 
   

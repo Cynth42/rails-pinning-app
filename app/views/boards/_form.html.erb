@@ -21,6 +21,7 @@
    </div>   
   
   <% if !@followers.nil? %>
+     <h5><%= "Select A Follower To Pin To This Board" %></h5>
     <div class="form-group">
     <%= select_tag "board[board_pinners_attributes][0][user_id]", options_from_collection_for_select(@followers, :id, :full_name), class: "form-control", include_blank: true %>
     </div>

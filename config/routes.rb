@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :followers
+
   resources :followers, except: [:edit, :update, :show]
 
   resources :boards
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   
   resources :pins
   get "/library" => "pins#index"
+  #delete "/pins/:id" => "pins#destroy"
   
 
     

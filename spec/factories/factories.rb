@@ -1,5 +1,4 @@
 FactoryGirl.define do
-    
     sequence :slug do |n|
          "slug#{n}"
     end

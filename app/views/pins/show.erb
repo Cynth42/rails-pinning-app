@@ -45,4 +45,5 @@
 <a href= <%= "#{new_pin_path}" %> >
   <i class="fa fa-hand-o-right"></i>
   Create a pin
-</a> 
+</a> |
+<%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>

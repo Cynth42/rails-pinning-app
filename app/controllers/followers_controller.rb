@@ -32,7 +32,7 @@ class FollowersController < ApplicationController
     respond_to do |format|
       if @follower.save
           @followed = current_user.followed
-          format.html { redirect_to followers_path }#notice: 'Follower was successfully created.' }
+          format.html { redirect_to followers_path, notice: 'Follower was successfully created.' }
         format.json { render :show, status: :created, location: @follower }
       else
         format.html { render :new }

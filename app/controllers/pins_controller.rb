@@ -11,13 +11,15 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     #set @users to the pin's users.
     @users = @pin.users
+    @pins = current_user.pins
   end
   
   def show_by_name
       #search for a Pin using the slug you grab from the URL/using a named url instead of the id
       @pin = Pin.find_by_slug(params[:slug])
       #set @users to the pin's users.
-      @users = User.joins(:pinnings).where("users.id = ? or pinnings.pin_id = ?", @pin.user_id, @pin.id).distinct #@users = Pin.find_by_slug(params[:slug]).users
+      @users = Pin.find_by_slug(params[:slug]).users #@users = User.joins(:pinnings).where("users.id = ? or pinnings.pin_id = ?", @pin.user_id, @pin.id).distinct
+      
       render :show
   end
 
@@ -51,8 +53,8 @@ class PinsController < ApplicationController
   end
   
   def update
-     @pin = Pin.find(params[:id])
-     @pin.update_attributes(pin_params)
+      @pin = Pin.find(params[:id])
+      @pin.update_attributes(pin_params)
     
      if @pin.valid?
         @pin.save
@@ -63,8 +65,16 @@ class PinsController < ApplicationController
      end
   end
  
+  def destroy
+     @pin = Pin.find(params[:id])
+     if !@pin.destroy
+     @pin.destroy
+     flash[:notice] = "Pin was successfully destroyed."
+     redirect_to pin_path(@pin)
+     end
+  end
+ 
   def repin
-    
      @pin = Pin.find(params[:id])
      
      Pinning.create(user_id: current_user, pin_id: @pin.id, board_id: params[:pin][:pinning][:board_id])

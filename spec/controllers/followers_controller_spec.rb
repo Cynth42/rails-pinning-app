@@ -44,7 +44,7 @@ RSpec.describe FollowersController do
             expect(response).to render_template(:new)
         end
         
-        it 'assigns an instance variable to a new pin' do
+        it 'assigns an instance variable to a new follower' do
             get :new
             expect(response).to render_template(:new)
         end

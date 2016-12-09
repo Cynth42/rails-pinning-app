@@ -48,6 +48,6 @@ Pin.create(
 
 User.create(
             first_name: "Johns",
-            last_name: "Doe",
-            email: "jdoe@skillcrush.com",
+            last_name: "Does",
+            email: "jdoes@skillcrush.com",
             password: "jdoe")

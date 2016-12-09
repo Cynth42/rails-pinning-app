@@ -2,8 +2,9 @@ require 'spec_helper'
 RSpec.describe BoardsController do
    before(:each) do
      @user = FactoryGirl.create(:user_with_boards_and_followers)
-     @board = @user.boards.first
      login(@user)
+     @board = @user.boards.first
+     
    end
   
    after(:each) do
