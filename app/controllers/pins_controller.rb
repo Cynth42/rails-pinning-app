@@ -11,7 +11,7 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     #set @users to the pin's users.
     @users = @pin.users
-    @pins = current_user.pins
+    #@pins = current_user.pins
   end
   
   def show_by_name
@@ -69,7 +69,6 @@ class PinsController < ApplicationController
      @pin = Pin.find(params[:id])
      if !@pin.destroy
      @pin.destroy
-     flash[:notice] = "Pin was successfully destroyed."
      redirect_to pin_path(@pin)
      end
   end

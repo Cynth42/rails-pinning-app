@@ -1,0 +1,17 @@
+<h1> Destroyed Pin </h1>
+
+<p> Pin was successfully destroyed!  Would you like to delete another pin?</p>
+
+<br />
+<hr />
+
+<%= link_to "Home Page", root_path %> |
+<%= link_to "All My Pins", user_path(current_user) %> |
+
+<a href= <%= "#{new_pin_path}" %> >
+  <i class="fa fa-hand-o-right"></i>
+  Create a pin
+</a> |
+
+<%= link_to 'Log In', login_path %> |
+<%= link_to 'Sign Up', signup_path %>
