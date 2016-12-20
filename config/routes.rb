@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   
   resources :pins
   get "/library" => "pins#index"
-  delete "/pins/:id(.:format)" => "pins#destroy", as: :destroy
+  #delete "/pins/:id(.:format)" => "pins#destroy", as: :destroy
   
 
     

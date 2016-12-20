@@ -2,7 +2,7 @@ class PinsController < ApplicationController
     before_action :require_login, except: [:show, :show_by_name]
   
   def index
-      #@pins = current_user.pins.all
+      #@pins = current_user.pins
       #Displays all pins
       @pins = Pin.all
   end
@@ -10,15 +10,15 @@ class PinsController < ApplicationController
   def show
     @pin = Pin.find(params[:id])
     #set @users to the pin's users.
-    @users = @pin.users
-    #@pins = current_user.pins
+    @users = @pin.users.distinct
+    @pins = current_user.pins.distinct
   end
   
   def show_by_name
       #search for a Pin using the slug you grab from the URL/using a named url instead of the id
       @pin = Pin.find_by_slug(params[:slug])
       #set @users to the pin's users.
-      @users = Pin.find_by_slug(params[:slug]).users #@users = User.joins(:pinnings).where("users.id = ? or pinnings.pin_id = ?", @pin.user_id, @pin.id).distinct
+      @users = User.joins(:pinnings).where("users.id = ? or pinnings.pin_id = ?", @pin.user_id, @pin.id).distinct #@users = Pin.find_by_slug(params[:slug]).users
       
       render :show
   end
@@ -69,7 +69,7 @@ class PinsController < ApplicationController
      @pin = Pin.find(params[:id])
      if !@pin.destroy
      @pin.destroy
-     redirect_to pin_path(@pin)
+     format.html{redirect_to action: :index, notice: "The pin was successfully deleted!"}
      end
   end
  
@@ -96,7 +96,7 @@ class PinsController < ApplicationController
 
 # Never trust parameters from the scary internet, only allow the white list through
   def pin_params
-      puts params.inspect
+      
       params.require(:pin).permit(:title, :category_id, :slug, :url, :text, :image, :user_id, pinnings_attributes: [:user_id, :id, :board_id])
   end
 end
